@@ -1,0 +1,8 @@
+version: "2.0"
+
+rules:
+
+- rule: Dizer sair a qualquer momento
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye

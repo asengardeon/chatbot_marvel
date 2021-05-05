@@ -1,0 +1,102 @@
+version: "2.0"
+
+stories:
+
+- story : about_characters_description
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: about_characters
+    - action: utter_about_characters
+    - intent: about_characters_description
+    - action: utter_about_characters_description
+
+- story : about_characters_comics
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: about_characters
+    - action: utter_about_characters
+    - intent: about_characters_comics
+    - action: utter_about_characters_comics
+
+- story : about_characters_photo
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: about_characters
+    - action: utter_about_characters
+    - intent: about_characters_photo
+    - action: utter_about_characters_photo
+
+- story : about_characters_alter_ego
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: about_characters
+    - action: utter_about_characters
+    - intent: about_characters_alter_ego
+    - action: utter_about_characters_alter_ego
+
+- story : about_comics_release_date
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: about_comics
+    - action: utter_about_comics
+    - intent: about_comics_release_date
+    - action: utter_about_comics_release_date
+
+- story : about_comics_creators
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: about_comics
+    - action: utter_about_comics
+    - intent: about_comics_creators
+    - action: utter_about_comics_creators
+
+- story : about_comics_characters
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: about_comics
+    - action: utter_about_comics
+    - intent: about_comics_characters
+    - action: utter_about_comics_characters
+
+- story : about_comics_photo
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: about_comics
+    - action: utter_about_comics
+    - intent: about_comics_photo
+    - action: utter_about_comics_photo
+
+- story : about_comics_price
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: about_comics
+    - action: utter_about_comics
+    - intent: about_comics_price
+    - action: utter_about_comics_price
+
+- story : about_creators_from_comic
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: about_creators
+    - action: utter_about_creators
+    - intent: about_creators_from_comic
+    - action: utter_about_creators_from_comic
+
+- story : about_creators_comics
+  steps:
+    - intent: greet
+    - action:  utter_greet
+    - intent: about_creators
+    - action: utter_about_creators
+    - intent: about_creators_comics
+    - action: utter_about_creators_comics

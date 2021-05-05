@@ -1,0 +1,81 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - Olá
+    - Bom dia
+    - Boa tarde
+    - Oi
+
+- intent: goodbye
+  examples : |
+    - Tchau
+    - Sair
+
+- intent : about_characters
+  examples : |
+    - Queria saber do personagens
+    - Queria conhecer mais sobre o personagem
+    - Queria conhecer sobre o heroi
+    - Queria conhecer sobre o super-heroi
+
+- intent : about_characters_description
+  examples : |
+    - Quem é o heroi
+    - Você conhece o heroi
+
+- intent : about_characters_comics
+  examples : |
+    - Quais quadrinhos o personagem está
+    - Quais comics o heroi está
+
+- intent : about_characters_photo
+  examples : |
+    - Foto
+
+- intent : about_characters_alter_ego
+  examples : |
+    - Alter ego
+
+- intent : about_comics
+  examples : |
+    - Quadrinhos
+
+- intent : about_comics_release_date
+  examples : |
+    - Data de lançamento
+    - Lançado
+    - Lançamento
+
+- intent : about_comics_creators
+  examples : |
+    - Criadores
+
+- intent : about_comics_characters
+  examples : |
+    - Personagens
+    - Super-herois
+    - Herois
+
+- intent : about_comics_photo
+  examples : |
+    - Foto
+
+- intent : about_comics_price
+  examples : |
+    - Preço
+    - Valor
+
+- intent : about_creators
+  examples : |
+    - Criador
+
+- intent : about_creators_from_comic
+  examples : |
+    - Criadores
+
+- intent : about_creators_comics
+  examples : |
+    - Quadrinhos
+

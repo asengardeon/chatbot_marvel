@@ -1,0 +1,63 @@
+version: "2.0"
+
+intents:
+  - greet
+  - about_characters
+  - about_characters_description
+  - about_characters_comics
+  - about_characters_photo
+  - about_characters_alter_ego
+  - about_comics
+  - about_comics_release_date
+  - about_comics_creators
+  - about_comics_characters
+  - about_comics_photo
+  - about_comics_price
+  - about_creators
+  - about_creators_from_comic
+  - about_creators_comics
+
+responses:
+  utter_greet:
+  - text: "Olá, bem-vindo ao canal de ajuda da Marvel. Meu nome é Bot Lee, serei seu super assistente virtual.
+Posso lhe ajudar em diversos assuntos sobre a Marvel Comics, como personagens, criadores e quadrinhos.
+Qual é sua pergunta?"
+
+  utter_goodbye:
+  - text: "Até a próxima"
+
+  utter_about_characters:
+  - text: "Certo, sei tudo sobre personagens da Marvel. Tenho fotos, descrições, quantidade de quadrinhos e até sei o alter ego de alguns. O que vai ser?"
+
+  utter_about_comics:
+  - text: "Ahhh meus quadrinhos... Lembro de todas as datas de lançamentos e criadores dos meus quadrinhos. Tenho também os preços, fotos e quais personagens aparecem...."
+
+  utter_about_creators:
+  - text: "Deseja saber quem escreveu seu quadrinho favorito ou ou quantos quadrinhos seu escritor criou? "
+
+  utter_about_characters_description:
+  - text: "utter_about_characters_description"
+  utter_about_characters_comics:
+  - text: "utter_about_characters_comics"
+  utter_about_characters_photo:
+  - text: "utter_about_characters_photo"
+  utter_about_characters_alter_ego:
+  - text: "utter_about_characters_alter_ego"
+  utter_about_comics_release_date:
+  - text: "utter_about_comics_release_date"
+  utter_about_comics_creators:
+  - text: "utter_about_comics_creators"
+  utter_about_comics_characters:
+  - text: "utter_about_comics_characters"
+  utter_about_comics_photo:
+  - text: "utter_about_comics_photo"
+  utter_about_comics_price:
+  - text: "utter_about_comics_price"
+  utter_about_creators_from_comic:
+  - text: "utter_about_creators_from_comic"
+  utter_about_creators_comics:
+  - text: "utter_about_creators_comics"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
