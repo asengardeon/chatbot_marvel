@@ -1,0 +1,182 @@
+{
+	"variables": [],
+	"info": {
+		"name": "chatbot-marvel",
+		"_postman_id": "5bcabda5-ba3e-7ce8-1ce5-849ac11fc5ec",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "char-descriptions",
+			"request": {
+				"url": "",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "char-photo",
+			"request": {
+				"url": "http://localhost:8088/char_photo/spider-man",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "comic_photo",
+			"request": {
+				"url": "http://localhost:8088/comic_photo/spider-man",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "qtd-comics-char",
+			"request": {
+				"url": "http://localhost:8088/comics_qtd_for_char/spider-man",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "date_of_comic",
+			"request": {
+				"url": "http://localhost:8088/date_of_comic/spider-man",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "prices_of_comic",
+			"request": {
+				"url": "http://localhost:8088/prices_of_comic/spider-man",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "comics_of_creator",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8088/comics_of_creator?firstName=Stan&lastName=Lee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"comics_of_creator"
+					],
+					"query": [
+						{
+							"key": "firstName",
+							"value": "Stan",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "lastName",
+							"value": "Lee",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "qtd_comics_of_creator",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8088/qtd_comics_of_creator?firstName=Stan&lastName=Lee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"qtd_comics_of_creator"
+					],
+					"query": [
+						{
+							"key": "firstName",
+							"value": "Stan",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "lastName",
+							"value": "Lee",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "creator_of_comic",
+			"request": {
+				"url": "http://localhost:8088/creator_of_comic/spider-man",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "characters_of_comic",
+			"request": {
+				"url": "http://localhost:8088/characters_of_comic/spider-man",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "char-descriptions",
+			"request": {
+				"url": "http://localhost:8088/char_description/spider-man",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
