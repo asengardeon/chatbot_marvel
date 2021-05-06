@@ -25,3 +25,9 @@ No diretório raiz deste projeto, execute `docker-compose up` para instanciar o 
 Em seguida, no diretório `rasa-example`, execute `rasa train` (não está sendo commitado o tar.gz) e em seguida `rasa interactive`.
 
 Todas as interações serão salvas na coleção `conversations` na base de dados `rasa`.
+
+
+## Buildar imagem do actions server
+
+- `docker build -t rasa-marvel:latest .`
+- `docker run -p 5055:5055 rasa-marvel`
