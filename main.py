@@ -10,6 +10,8 @@ app = Flask(__name__)
 
 m = Marvel(PUBLIC_KEY, PRIVATE_KEY)
 
+LIMIT_SEARCH = 100
+
 
 @app.route('/')
 def root():
@@ -83,10 +85,18 @@ def comic_photo(comic: string):
 def comics_of_creator():
   params = request.args.to_dict()
   creators = m.creators.all(firstName=params['firstName'], lastName=params['lastName'])
-  comics = creators['data']['results'][0]['comics']['items']
+  creator_id = creators['data']['results'][0]['id']
+  comic_creator = m.creators.comics(creator_id, limit=LIMIT_SEARCH)
+  comics = comic_creator['data']['results']
+  qtd_max = comic_creator['data']['total']
   result = ''
-  for c in comics:
-      result += f"{c['name']};"
+  actual = 0;
+  while(actual < qtd_max):
+    for c in comics:
+        result += f"{c['title']};"
+        actual = actual + 1
+    comic_creator = m.creators.comics(creator_id, offset=LIMIT_SEARCH, limit=LIMIT_SEARCH)
+    comics = comic_creator['data']['results']
   return result
 
 
