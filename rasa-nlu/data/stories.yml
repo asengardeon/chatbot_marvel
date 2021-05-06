@@ -9,7 +9,9 @@ stories:
     - intent: about_characters
     - action: utter_about_characters
     - intent: about_characters_description
-    - action: utter_about_characters_description
+      entities:
+        - character_name: "spider-man"
+    - action: action_character_description
 
 - story : about_characters_comics
   steps:

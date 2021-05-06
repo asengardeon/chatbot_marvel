@@ -16,14 +16,24 @@ nlu:
 - intent : about_characters
   examples : |
     - Queria saber do personagens
+    - Queria saber do personagem
+    - Queria conhecer mais sobre os personagens
     - Queria conhecer mais sobre o personagem
+    - Queria conhecer sobre os herois
     - Queria conhecer sobre o heroi
+    - Queria conhecer sobre os super-herois
     - Queria conhecer sobre o super-heroi
 
 - intent : about_characters_description
   examples : |
-    - Quem é o heroi
-    - Você conhece o heroi
+    - Qual a história do [spider-man](character_name)
+    - Você conhece o heroi [spider-man](character_name)
+    - Qual a história do [iron-man](character_name)
+    - Você conhece o heroi [homem de ferro](character_name)
+    - Qual a história do [capitao america](character_name)
+    - Você conhece o heroi [capitao america](character_name)
+    - Qual a história do [hulk](character_name)
+    - Você conhece o heroi [hulk](character_name)
 
 - intent : about_characters_comics
   examples : |
@@ -32,7 +42,7 @@ nlu:
 
 - intent : about_characters_photo
   examples : |
-    - Foto
+    - Foto do personagem
 
 - intent : about_characters_alter_ego
   examples : |
@@ -60,7 +70,7 @@ nlu:
 
 - intent : about_comics_photo
   examples : |
-    - Foto
+    - Foto do quadrinho
 
 - intent : about_comics_price
   examples : |
@@ -69,13 +79,13 @@ nlu:
 
 - intent : about_creators
   examples : |
-    - Criador
+    - Quero saber sobre os criadores
 
 - intent : about_creators_from_comic
   examples : |
-    - Criadores
+    - Quem criou o quadrinho
 
 - intent : about_creators_comics
   examples : |
-    - Quadrinhos
+    - Quais quadrinhos o criador criou
 

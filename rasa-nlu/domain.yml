@@ -2,8 +2,11 @@ version: "2.0"
 
 intents:
   - greet
+  - goodbye
   - about_characters
-  - about_characters_description
+  - about_characters_description:
+      use_entities:
+        - character_name
   - about_characters_comics
   - about_characters_photo
   - about_characters_alter_ego
@@ -35,8 +38,6 @@ Qual é sua pergunta?"
   utter_about_creators:
   - text: "Deseja saber quem escreveu seu quadrinho favorito ou ou quantos quadrinhos seu escritor criou? "
 
-  utter_about_characters_description:
-  - text: "utter_about_characters_description"
   utter_about_characters_comics:
   - text: "utter_about_characters_comics"
   utter_about_characters_photo:
@@ -57,6 +58,12 @@ Qual é sua pergunta?"
   - text: "utter_about_creators_from_comic"
   utter_about_creators_comics:
   - text: "utter_about_creators_comics"
+
+actions:
+  - action_character_description
+
+entities:
+  - character_name
 
 session_config:
   session_expiration_time: 60
