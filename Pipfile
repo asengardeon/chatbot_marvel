@@ -7,6 +7,8 @@ name = "pypi"
 flask = "*"
 gevent = "*"
 marvel = "*"
+google_trans_new = "*"
+requests = "*"
 
 [dev-packages]
 

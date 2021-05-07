@@ -133,4 +133,4 @@ dmypy.json
 
 # Rasa models
 
-rasa-nlu/models/
+rasa_nlu/models/

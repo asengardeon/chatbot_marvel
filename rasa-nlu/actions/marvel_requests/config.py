@@ -1,2 +1,0 @@
-PUBLIC_KEY = ""
-PRIVATE_KEY = ""

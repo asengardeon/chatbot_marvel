@@ -3,12 +3,15 @@ import string
 from flask import Flask, request
 from gevent.pywsgi import WSGIServer
 from marvel import Marvel
+from google_trans_new import google_translator
 
-from config import PUBLIC_KEY, PRIVATE_KEY
+
+from rasa_nlu.actions.marvel_requests.config import PUBLIC_KEY, PRIVATE_KEY
 
 app = Flask(__name__)
 
 m = Marvel(PUBLIC_KEY, PRIVATE_KEY)
+t = google_translator()
 
 LIMIT_SEARCH = 100
 
@@ -22,7 +25,9 @@ def root():
 @app.route('/char_description/<char_name>')
 def char_description(char_name: string):
   char = m.characters.all(nameStartsWith=char_name)
-  return char['data']['results'][0]['description']
+  c = char['data']['results'][0]['description']
+  desc = t.translate(text=c, lang_tgt="pt")
+  return desc
 
 
 @app.route('/char_photo/<char_name>')
