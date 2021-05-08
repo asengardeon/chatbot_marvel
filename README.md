@@ -32,7 +32,13 @@ Todas as interações serão salvas na coleção `conversations` na base de dado
 - `docker build -t rasa-marvel:latest .`
 - `docker run -p 5055:5055 rasa-marvel`
 
-## Frontend
+## Para executar:
 
-- Executar `rasa run --enable-api`
-- Abrir arquivo `front/index.html` (Por enquanto está com problemas de CORS)
+- Na pasta chatbot_marvel, executar:
+- `docker-compose up`
+- Na pasta chatbot_marvel/rasa_nlu, executar:
+- `docker run -p 5055:5055 rasa-marvel`
+- Na pasta chatbot_marvel/rasa_nlu, executar:
+- `rasa run --enable-api --cors ['http://localhost:8000']`
+- Na pasta chatbot_marvel/front, executar:
+- `python -m http.server`
