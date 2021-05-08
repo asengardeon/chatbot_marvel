@@ -4,5 +4,5 @@ rules:
 
 - rule: Dizer sair a qualquer momento
   steps:
-  - intent: goodbye
+  - intent: intent_goodbye
   - action: utter_goodbye

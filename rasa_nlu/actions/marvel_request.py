@@ -1,11 +1,11 @@
 import string
 from urllib import request
 from marvel import Marvel
-from config import PUBLIC_KEY, PRIVATE_KEY
-from google_trans_new import google_trans_new
+from .config import PUBLIC_KEY, PRIVATE_KEY
+from google_trans_new import google_translator
 
 m = Marvel(PUBLIC_KEY, PRIVATE_KEY)
-t = google_trans_new()
+t = google_translator()
 
 LIMIT_SEARCH = 100
 

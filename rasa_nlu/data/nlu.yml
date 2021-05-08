@@ -1,91 +1,40 @@
 version: "2.0"
 
 nlu:
-- intent: greet
+- intent: intent_greet
   examples: |
     - Olá
     - Bom dia
     - Boa tarde
     - Oi
 
-- intent: goodbye
+- intent: intent_goodbye
   examples : |
     - Tchau
+    - Até logo
     - Sair
 
-- intent : about_characters
+- intent: intent_about_heros
   examples : |
-    - Queria saber do personagens
-    - Queria saber do personagem
-    - Queria conhecer mais sobre os personagens
-    - Queria conhecer mais sobre o personagem
-    - Queria conhecer sobre os herois
-    - Queria conhecer sobre o heroi
-    - Queria conhecer sobre os super-herois
-    - Queria conhecer sobre o super-heroi
+    - Quero conhecer sobre herois
+    - Quero conhecer sobre personagens
+    - Sobre herois
+    - Sobre personagens
+    - Quero conhecer os herois da marvel
+    - Quero conhecer os personagens da marvel
 
-- intent : about_characters_description
+- intent: intent_hero_name
   examples : |
-    - Qual a história do [spider-man](character_name)
-    - Você conhece o heroi [spider-man](character_name)
-    - Qual a história do [iron-man](character_name)
-    - Você conhece o heroi [homem de ferro](character_name)
-    - Qual a história do [capitao america](character_name)
-    - Você conhece o heroi [capitao america](character_name)
-    - Qual a história do [hulk](character_name)
-    - Você conhece o heroi [hulk](character_name)
+    - [hulk]{"entity":"hero_name","value":"hulk"}
+    - [spider-man]{"entity":"hero_name","value":"spider-man"}
+    - [iron-man]{"entity":"hero_name","value":"iron-man"}
+    - [captain america]{"entity":"hero_name","value":"captain america"}
 
-- intent : about_characters_comics
+- intent: intent_inform_hero_description
   examples : |
-    - Quais quadrinhos o personagem está
-    - Quais comics o heroi está
-
-- intent : about_characters_photo
-  examples : |
-    - Foto do personagem
-
-- intent : about_characters_alter_ego
-  examples : |
-    - Alter ego
-
-- intent : about_comics
-  examples : |
-    - Quadrinhos
-
-- intent : about_comics_release_date
-  examples : |
-    - Data de lançamento
-    - Lançado
-    - Lançamento
-
-- intent : about_comics_creators
-  examples : |
-    - Criadores
-
-- intent : about_comics_characters
-  examples : |
-    - Personagens
-    - Super-herois
-    - Herois
-
-- intent : about_comics_photo
-  examples : |
-    - Foto do quadrinho
-
-- intent : about_comics_price
-  examples : |
-    - Preço
-    - Valor
-
-- intent : about_creators
-  examples : |
-    - Quero saber sobre os criadores
-
-- intent : about_creators_from_comic
-  examples : |
-    - Quem criou o quadrinho
-
-- intent : about_creators_comics
-  examples : |
-    - Quais quadrinhos o criador criou
+    - Quero conhecer sua história
+    - Conte um pouco sobre o heroi
+    - Conte um pouco sobre a heroina
+    - Quem é ele
+    - Quem é ela
 

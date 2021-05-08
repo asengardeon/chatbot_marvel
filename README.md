@@ -31,3 +31,8 @@ Todas as interações serão salvas na coleção `conversations` na base de dado
 
 - `docker build -t rasa-marvel:latest .`
 - `docker run -p 5055:5055 rasa-marvel`
+
+## Frontend
+
+- Executar `rasa run --enable-api`
+- Abrir arquivo `front/index.html` (Por enquanto está com problemas de CORS)

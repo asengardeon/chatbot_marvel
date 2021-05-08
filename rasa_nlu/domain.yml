@@ -1,69 +1,42 @@
 version: "2.0"
 
 intents:
-  - greet
-  - goodbye
-  - about_characters
-  - about_characters_description:
-      use_entities:
-        - character_name
-  - about_characters_comics
-  - about_characters_photo
-  - about_characters_alter_ego
-  - about_comics
-  - about_comics_release_date
-  - about_comics_creators
-  - about_comics_characters
-  - about_comics_photo
-  - about_comics_price
-  - about_creators
-  - about_creators_from_comic
-  - about_creators_comics
+  - intent_greet
+  - intent_goodbye
+  - intent_about_heros
+  - intent_hero_name
+  - intent_inform_hero_description
 
 responses:
   utter_greet:
   - text: "Olá, bem-vindo ao canal de ajuda da Marvel. Meu nome é Bot Lee, serei seu super assistente virtual.
-Posso lhe ajudar em diversos assuntos sobre a Marvel Comics, como personagens, criadores e quadrinhos.
+Posso lhe ajudar em diversos assuntos sobre a Marvel Comics, como herois, criadores e quadrinhos.
 Qual é sua pergunta?"
 
   utter_goodbye:
   - text: "Até a próxima"
 
-  utter_about_characters:
-  - text: "Certo, sei tudo sobre personagens da Marvel. Tenho fotos, descrições, quantidade de quadrinhos e até sei o alter ego de alguns. O que vai ser?"
+  utter_ask_hero_name:
+  - text : "Qual heroi/heroina você quer conhecer mais?"
 
-  utter_about_comics:
-  - text: "Ahhh meus quadrinhos... Lembro de todas as datas de lançamentos e criadores dos meus quadrinhos. Tenho também os preços, fotos e quais personagens aparecem...."
-
-  utter_about_creators:
-  - text: "Deseja saber quem escreveu seu quadrinho favorito ou ou quantos quadrinhos seu escritor criou? "
-
-  utter_about_characters_comics:
-  - text: "utter_about_characters_comics"
-  utter_about_characters_photo:
-  - text: "utter_about_characters_photo"
-  utter_about_characters_alter_ego:
-  - text: "utter_about_characters_alter_ego"
-  utter_about_comics_release_date:
-  - text: "utter_about_comics_release_date"
-  utter_about_comics_creators:
-  - text: "utter_about_comics_creators"
-  utter_about_comics_characters:
-  - text: "utter_about_comics_characters"
-  utter_about_comics_photo:
-  - text: "utter_about_comics_photo"
-  utter_about_comics_price:
-  - text: "utter_about_comics_price"
-  utter_about_creators_from_comic:
-  - text: "utter_about_creators_from_comic"
-  utter_about_creators_comics:
-  - text: "utter_about_creators_comics"
+  utter_ask_hero_options:
+  - text : "Certo, o que você quer saber sobre {hero_name}? História?"
 
 actions:
-  - action_character_description
+  - action_hero_description
 
 entities:
-  - character_name
+  - hero_name
+  - comic_name
+  - creator_name
+
+slots:
+  hero_name:
+    type: text
+  comic_name:
+    type: text
+  creator_name:
+    type: text
 
 session_config:
   session_expiration_time: 60
