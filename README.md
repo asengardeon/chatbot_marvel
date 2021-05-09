@@ -11,33 +11,22 @@ Integrantes:
 
 - Rasa 2.5
 - MongoDB 4.5
+- Python 3.8
 
 ## Dependências
 
-- Docker
-- Python 3.8
-- Rasa 2.5
+- Docker ([clique aqui para instalar](https://www.docker.com/products/docker-desktop)
 
-## Como executar apenas o Rasa e o MongoDB?
+## Como executar o chatbot?
 
-No diretório raiz deste projeto, execute `docker-compose up` para instanciar o MongoDB e o [Mongo Express](http://localhost:8081).
+Após instalar o Docker e executá-lo, no diretório raiz deste projeto, execute o comando `docker-compose up`.
 
-Em seguida, no diretório `rasa-example`, execute `rasa train` (não está sendo commitado o tar.gz) e em seguida `rasa interactive`.
+Para acessar o frontend, [clique aqui](http://localhost:8000).
 
-Todas as interações serão salvas na coleção `conversations` na base de dados `rasa`.
+Par acessar a base de dados, [clique aqui](http://localhost:8081).
 
+## TODO incluir no docker-compose
 
-## Buildar imagem do actions server
-
-- `docker build -t rasa-marvel:latest .`
-- `docker run -p 5055:5055 rasa-marvel`
-
-## Para executar:
-
-- Na pasta chatbot_marvel, executar:
-- `docker-compose up`
-- Na pasta chatbot_marvel/rasa_nlu, executar:
-- `docker run -p 5055:5055 rasa-marvel`
 - Na pasta chatbot_marvel/rasa_nlu, executar:
 - `rasa run --enable-api --cors ['http://localhost:8000']`
 - Na pasta chatbot_marvel/front, executar:
