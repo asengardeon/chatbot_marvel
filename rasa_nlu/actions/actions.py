@@ -11,7 +11,8 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from .marvel_request import *
+
+from .marvel_requests import marvel_request
 
 class ActionHeroDescription(Action):
 
@@ -23,9 +24,8 @@ class ActionHeroDescription(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         char_name = tracker.get_slot('hero_name')
 
-        description = char_description(char_name)
-
-        dispatcher.utter_message(text=description)
+        found, desc = marvel_request.char_description(char_name)
+        dispatcher.utter_message(text=desc)
         return []
 
 
@@ -39,9 +39,11 @@ class ActionHeroPhoto(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         char_name = tracker.get_slot('hero_name')
 
-        photo = char_photo(char_name)
-
-        dispatcher.utter_message(image=photo)
+        found, result = marvel_request.char_photo(char_name)
+        if found:
+            dispatcher.utter_message(image=result)
+        else:
+            dispatcher.utter_message(text=result)
         return []
 
 
@@ -55,9 +57,9 @@ class ActionHeroComicsQuantity(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         char_name = tracker.get_slot('hero_name')
 
-        description = comics_qtd_for_char(char_name)
+        result = marvel_request.comics_qtd_for_char(char_name)
 
-        dispatcher.utter_message(text=description)
+        dispatcher.utter_message(text=result)
         return []
 
 
@@ -71,9 +73,9 @@ class ActionDateOfComic(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         comic_name = tracker.get_slot('comic_name')
 
-        description = date_of_comic(comic_name)
+        found, result = marvel_request.date_of_comic(comic_name)
 
-        dispatcher.utter_message(text=description)
+        dispatcher.utter_message(text=result)
         return []
 
 
@@ -87,9 +89,9 @@ class ActionCreatorOfComic(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         comic_name = tracker.get_slot('comic_name')
 
-        description = creator_of_comic(comic_name)
+        found, result = marvel_request.creator_of_comic(comic_name)
 
-        dispatcher.utter_message(text=description)
+        dispatcher.utter_message(text=result)
         return []
 
 
@@ -103,9 +105,9 @@ class ActionCharactersOfComic(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         comic_name = tracker.get_slot('comic_name')
 
-        description = characters_of_comic(comic_name)
+        found, result = marvel_request.characters_of_comic(comic_name)
 
-        dispatcher.utter_message(text=description)
+        dispatcher.utter_message(text=result)
         return []
 
 
@@ -119,9 +121,9 @@ class ActionComicPrices(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         comic_name = tracker.get_slot('comic_name')
 
-        description = prices_of_comic(comic_name)
+        found, result = marvel_request.prices_of_comic(comic_name)
 
-        dispatcher.utter_message(text=description)
+        dispatcher.utter_message(text=result)
         return []
 
 
@@ -135,9 +137,26 @@ class ActionComicPhoto(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         comic_name = tracker.get_slot('comic_name')
 
-        description = comic_photo(comic_name)
+        found, result = marvel_request.comic_photo(comic_name)
+        if found:
+            dispatcher.utter_message(image=result)
+        else:
+            dispatcher.utter_message(text=result)
+        return []
 
-        dispatcher.utter_message(text=description)
+
+class ActionComicsOfCreator(Action):
+
+    def name(self) -> Text:
+        return "action_creators_comics"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        first_name = tracker.get_slot('first_name')
+        last_name = tracker.get_slot('last_name')
+        found, result = marvel_request.comics_of_creator(first_name, last_name)
+        dispatcher.utter_message(text=result)
         return []
 
 
@@ -149,10 +168,9 @@ class ActionQuantityOfComicsOfCreator(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        creator_name = tracker.get_slot('creator_name')
-
-        description = qtd_comics_of_creator(creator_name)
-
-        dispatcher.utter_message(text=description)
+        first_name = tracker.get_slot('first_name')
+        last_name = tracker.get_slot('last_name')
+        found, result = marvel_request.qtd_comics_of_creator(first_name, last_name)
+        dispatcher.utter_message(text=result)
         return []
 
