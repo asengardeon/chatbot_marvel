@@ -2,15 +2,29 @@ version: "2.0"
 
 stories:
 
-- story: checkpoint_hero_name # Checkpoint nome do personagem
+- story: checkpoint_greet
   steps:
     - intent: intent_greet
     - action: utter_greet
+    - checkpoint: checkpoint_greet
+
+- story: checkpoint_hero_name_1 # Checkpoint nome do personagem
+  steps:
+    - checkpoint: checkpoint_greet
     - intent: intent_about_heros
     - action: utter_ask_hero_name
     - intent: intent_hero_name
       entities:
           - hero_name: "spider-man"
+    - action: utter_ask_hero_options
+    - checkpoint: hero_name_informed
+
+- story: checkpoint_hero_name_2 # Checkpoint nome do personagem 2
+  steps:
+    - checkpoint: checkpoint_greet
+    - intent: intent_hero_name
+      entities:
+        - hero_name: "spider-man"
     - action: utter_ask_hero_options
     - checkpoint: hero_name_informed
 
@@ -20,8 +34,14 @@ stories:
     - intent: intent_inform_hero_description
     - action: action_hero_description
 
-- story: story_hero_photo # Descrição do personagem
+- story: story_hero_photo # Foto do personagem
   steps:
     - checkpoint: hero_name_informed
     - intent: intent_inform_hero_photo
     - action: action_hero_photo
+
+- story: story_hero_comics_quantity # Quantidade de quadrinhos do personagem
+  steps:
+    - checkpoint: hero_name_informed
+    - intent: intent_inform_hero_comics_quantity
+    - action: action_hero_comics_quantity

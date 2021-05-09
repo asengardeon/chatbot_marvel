@@ -26,9 +26,17 @@ nlu:
 - intent: intent_hero_name
   examples : |
     - [hulk]{"entity":"hero_name","value":"hulk"}
+    - quero conhecer o [hulk]{"entity":"hero_name","value":"hulk"}
+    - voce conhece o [hulk]{"entity":"hero_name","value":"hulk"}
     - [spider-man]{"entity":"hero_name","value":"spider-man"}
-    - [iron-man]{"entity":"hero_name","value":"iron-man"}
+    - quero conhecer o [spider-man]{"entity":"hero_name","value":"spider-man"}
+    - voce conhece o [spider-man]{"entity":"hero_name","value":"spider-man"}
+    - [iron man]{"entity":"hero_name","value":"iron man"}
+    - quero conhecer o [iron man]{"entity":"hero_name","value":"iron man"}
+    - voce conhece o [iron man]{"entity":"hero_name","value":"iron man"}
     - [captain america]{"entity":"hero_name","value":"captain america"}
+    - quero conhecer o [captain america]{"entity":"hero_name","value":"captain america"}
+    - voce conhece o [captain america]{"entity":"hero_name","value":"captain america"}
 
 - intent: intent_inform_hero_description
   examples : |
@@ -44,3 +52,12 @@ nlu:
     - Me envia uma fota dela
     - Quero uma foto dele
     - Quero uma foto dela
+
+- intent: intent_inform_hero_comics_quantity
+  examples : |
+    - Quantos quadrinhos ele participou
+    - Quantos quadrinhos ela participou
+    - Ele está presente em quantos quadrinhos
+    - Ela está presente em quantos quadrinhos
+    - Quantidade de quadrinhos do heroi
+    - Quantidade de quadrinhos da heroina
