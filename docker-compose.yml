@@ -14,3 +14,7 @@ services:
         environment:
             ME_CONFIG_MONGODB_ADMINUSERNAME: rasa
             ME_CONFIG_MONGODB_ADMINPASSWORD: rasa
+    rasa-nlu:
+        build: ./rasa_nlu
+        ports:
+            - 5055:5055
