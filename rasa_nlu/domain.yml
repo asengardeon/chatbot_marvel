@@ -7,6 +7,7 @@ intents:
   - intent_hero_name
   - intent_inform_hero_description
   - intent_inform_hero_photo
+  - intent_inform_hero_comics_quantity
 
 responses:
   utter_greet:
@@ -21,11 +22,12 @@ Qual é sua pergunta?"
   - text : "Qual heroi/heroina você quer conhecer mais?"
 
   utter_ask_hero_options:
-  - text : "Certo, o que você quer saber sobre {hero_name}? História?"
+  - text : "Certo, o que você quer saber sobre {hero_name}? História? Foto? Quantidade de quadrinhos que ele aparece?"
 
 actions:
   - action_hero_description
   - action_hero_photo
+  - action_hero_comics_quantity
 
 entities:
   - hero_name
