@@ -19,3 +19,9 @@ stories:
     - checkpoint: hero_name_informed
     - intent: intent_inform_hero_description
     - action: action_hero_description
+
+- story: story_hero_photo # Descrição do personagem
+  steps:
+    - checkpoint: hero_name_informed
+    - intent: intent_inform_hero_photo
+    - action: action_hero_photo

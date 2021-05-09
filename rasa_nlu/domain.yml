@@ -6,6 +6,7 @@ intents:
   - intent_about_heros
   - intent_hero_name
   - intent_inform_hero_description
+  - intent_inform_hero_photo
 
 responses:
   utter_greet:
@@ -24,6 +25,7 @@ Qual é sua pergunta?"
 
 actions:
   - action_hero_description
+  - action_hero_photo
 
 entities:
   - hero_name

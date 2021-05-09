@@ -21,11 +21,10 @@ class ActionHeroDescription(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        char_name = next(tracker.get_latest_entity_values("hero_name"), None)
+        char_name = tracker.get_slot('hero_name')
 
         description = char_description(char_name)
 
-        #dispatcher.utter_message(text="Sim! conheço o " + char_name)
         dispatcher.utter_message(text=description)
         return []
 
@@ -38,11 +37,11 @@ class ActionHeroPhoto(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        char_name = next(tracker.get_latest_entity_values("hero_name"), None)
+        char_name = tracker.get_slot('hero_name')
 
-        description = char_photo(char_name)
+        photo = char_photo(char_name)
 
-        dispatcher.utter_message(text=description)
+        dispatcher.utter_message(image=photo)
         return []
 
 
@@ -54,7 +53,7 @@ class ActionHeroComicsQuantity(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        char_name = next(tracker.get_latest_entity_values("hero_name"), None)
+        char_name = tracker.get_slot('hero_name')
 
         description = comics_qtd_for_char(char_name)
 
@@ -70,7 +69,7 @@ class ActionDateOfComic(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        comic_name = next(tracker.get_latest_entity_values("comic_name"), None)
+        comic_name = tracker.get_slot('comic_name')
 
         description = date_of_comic(comic_name)
 
@@ -86,7 +85,7 @@ class ActionCreatorOfComic(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        comic_name = next(tracker.get_latest_entity_values("comic_name"), None)
+        comic_name = tracker.get_slot('comic_name')
 
         description = creator_of_comic(comic_name)
 
@@ -102,7 +101,7 @@ class ActionCharactersOfComic(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        comic_name = next(tracker.get_latest_entity_values("comic_name"), None)
+        comic_name = tracker.get_slot('comic_name')
 
         description = characters_of_comic(comic_name)
 
@@ -118,7 +117,7 @@ class ActionComicPrices(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        comic_name = next(tracker.get_latest_entity_values("comic_name"), None)
+        comic_name = tracker.get_slot('comic_name')
 
         description = prices_of_comic(comic_name)
 
@@ -134,7 +133,7 @@ class ActionComicPhoto(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        comic_name = next(tracker.get_latest_entity_values("comic_name"), None)
+        comic_name = tracker.get_slot('comic_name')
 
         description = comic_photo(comic_name)
 
@@ -150,7 +149,7 @@ class ActionQuantityOfComicsOfCreator(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        creator_name = next(tracker.get_latest_entity_values("creator_name"), None)
+        creator_name = tracker.get_slot('creator_name')
 
         description = qtd_comics_of_creator(creator_name)
 

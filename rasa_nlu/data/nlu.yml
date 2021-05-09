@@ -38,3 +38,9 @@ nlu:
     - Quem é ele
     - Quem é ela
 
+- intent: intent_inform_hero_photo
+  examples : |
+    - Me envia uma foto dele
+    - Me envia uma fota dela
+    - Quero uma foto dele
+    - Quero uma foto dela
