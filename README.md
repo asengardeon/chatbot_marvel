@@ -25,9 +25,6 @@ Para acessar o frontend, [clique aqui](http://localhost:8000).
 
 Par acessar a base de dados, [clique aqui](http://localhost:8081).
 
-## TODO incluir no docker-compose
+## TODO
 
-- Na pasta chatbot_marvel/rasa_nlu, executar:
-- `rasa run --enable-api --cors ['http://localhost:8000']`
-- Na pasta chatbot_marvel/front, executar:
-- `python -m http.server`
+No diretório rasa_nlu, execute o comando `rasa run --enable-api --cors ['http://localhost:8000']`.
