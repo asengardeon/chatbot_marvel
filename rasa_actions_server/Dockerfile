@@ -14,7 +14,7 @@ USER root
 RUN pip install -r requirements-actions.txt
 
 # Copy actions code to working directory
-COPY ./actions /app/actions
+COPY actions /app/actions
 
 # Install modules from setup.py
 COPY setup.py /app

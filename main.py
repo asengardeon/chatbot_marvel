@@ -4,8 +4,8 @@ from flask import Flask, request
 from gevent.pywsgi import WSGIServer
 from marvel import Marvel
 from google_trans_new import google_translator
-from rasa_nlu.actions.marvel_requests.config import PUBLIC_KEY, PRIVATE_KEY
-from rasa_nlu.actions.marvel_requests import marvel_request
+from rasa_actions_server.actions.marvel_requests.config import PUBLIC_KEY, PRIVATE_KEY
+from rasa_actions_server.actions.marvel_requests import marvel_request
 
 ITEM_NOT_FOUND = "não encontrado"
 

@@ -16,14 +16,31 @@ services:
             ME_CONFIG_MONGODB_ADMINPASSWORD: rasa
         depends_on:
             - mongo
-    rasa-nlu:
-        build: ./rasa_nlu
+    rasa-actions-server:
+        build: ./rasa_actions_server
         ports:
             - 5055:5055
         depends_on:
             - mongo
-    front:
-        image: python
+    rasa-nlu-server:
+        image: rasa/rasa:2.5.1
+        ports:
+            - 5005:5005
+        volumes:
+            - ./rasa_nlu:/app
+        links:
+            - "mongo"
+            - "rasa-actions-server"
+        command: >
+            run
+            --enable-api
+            --cors ['http://localhost:8000']
         depends_on:
-            - rasa-nlu
-        command: bash -c "python -m http.server"
+            - mongo
+            - rasa-actions-server
+    front:
+        build: ./front
+        depends_on:
+            - rasa-nlu-server
+        ports:
+            - 8000:8000
