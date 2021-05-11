@@ -24,7 +24,3 @@ Após instalar o Docker e executá-lo, no diretório raiz deste projeto, execute
 Para acessar o frontend, [clique aqui](http://localhost:8000).
 
 Par acessar a base de dados, [clique aqui](http://localhost:8081).
-
-## TODO
-
-No diretório rasa_nlu, execute o comando `rasa run --enable-api --cors ['http://localhost:8000']`.
