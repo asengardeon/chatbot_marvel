@@ -25,7 +25,11 @@ class ActionHeroDescription(Action):
         char_name = tracker.get_slot('hero_name')
 
         found, desc = marvel_request.char_description(char_name)
-        dispatcher.utter_message(text=desc)
+        if found:
+            dispatcher.utter_message(text=f"Vou te contar a história do(a) {char_name}, veja só!")
+            dispatcher.utter_message(text=desc)
+        else:
+            dispatcher.utter_message(text=f"Infelizmente não conheço o(a) {char_name} ")
         return []
 
 
@@ -41,9 +45,10 @@ class ActionHeroPhoto(Action):
 
         found, result = marvel_request.char_photo(char_name)
         if found:
+            dispatcher.utter_message(text=f"Toma uma foto bonitona do(a) {char_name}")
             dispatcher.utter_message(image=result)
         else:
-            dispatcher.utter_message(text=result)
+            dispatcher.utter_message(text=f"Infelizmente não tenho foto do(a) {char_name}")
         return []
 
 
@@ -59,7 +64,7 @@ class ActionHeroComicsQuantity(Action):
 
         result = marvel_request.comics_qtd_for_char(char_name)
 
-        dispatcher.utter_message(text=result)
+        dispatcher.utter_message(text=f"O(a) {char_name} participou de {result} quadrinhos")
         return []
 
 
@@ -75,7 +80,10 @@ class ActionDateOfComic(Action):
 
         found, result = marvel_request.date_of_comic(comic_name)
 
-        dispatcher.utter_message(text=result)
+        if found:
+            dispatcher.utter_message(text=f"{comic_name} foi lançado em {result}")
+        else:
+            dispatcher.utter_message(text=f"Infelizmente não sei a data de lançamento do quadrinho {comic_name}")
         return []
 
 
@@ -91,7 +99,10 @@ class ActionCreatorOfComic(Action):
 
         found, result = marvel_request.creator_of_comic(comic_name)
 
-        dispatcher.utter_message(text=result)
+        if found:
+            dispatcher.utter_message(text=f"Os(as) criadores(as) de {comic_name} foram: {result}")
+        else:
+            dispatcher.utter_message(text=f"Infelizmente não sei quem escreveu o quadrinho {comic_name}")
         return []
 
 
@@ -148,7 +159,7 @@ class ActionComicPhoto(Action):
 class ActionComicsOfCreator(Action):
 
     def name(self) -> Text:
-        return "action_creators_comics"
+        return "action_creator_comics"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -160,14 +171,15 @@ class ActionComicsOfCreator(Action):
         return []
 
 
-class ActionQuantityOfComicsOfCreator(Action):
+class ActionCreatorFoto(Action):
 
     def name(self) -> Text:
-        return "action_creators_comics"
+        return "action_creator_photo"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # TODO
         first_name = tracker.get_slot('first_name')
         last_name = tracker.get_slot('last_name')
         found, result = marvel_request.qtd_comics_of_creator(first_name, last_name)

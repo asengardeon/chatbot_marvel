@@ -1,6 +1,9 @@
 version: "2.0"
 
 nlu:
+
+################################################## GREET ##################################################
+
 - intent: intent_greet
   examples: |
     - Olá
@@ -13,6 +16,8 @@ nlu:
     - Tchau
     - Até logo
     - Sair
+
+################################################## HERO ##################################################
 
 - intent: intent_about_heros
   examples : |
@@ -45,6 +50,18 @@ nlu:
     - Conte um pouco sobre a heroina
     - Quem é ele
     - Quem é ela
+    - Me conta a historia do [hulk]{"entity":"hero_name","value":"hulk"}
+    - Quero conhecer a historia do [hulk]{"entity":"hero_name","value":"hulk"}
+    - Quem é o [hulk]{"entity":"hero_name","value":"hulk"}
+    - Me conta a historia do [spider-man]{"entity":"hero_name","value":"spider-man"}
+    - Quero conhecer a historia do [spider-man]{"entity":"hero_name","value":"spider-man"}
+    - Quem é o [spider-man]{"entity":"hero_name","value":"spider-man"}
+    - Me conta a historia do [iron man]{"entity":"hero_name","value":"iron man"}
+    - Quero conhecer a historia do [iron man]{"entity":"hero_name","value":"iron man"}
+    - Quem é o [iron man]{"entity":"hero_name","value":"iron man"}
+    - Me conta a historia do [captain america]{"entity":"hero_name","value":"captain america"}
+    - Quero conhecer a historia do [captain america]{"entity":"hero_name","value":"captain america"}
+    - Quem é o [captain america]{"entity":"hero_name","value":"captain america"}
 
 - intent: intent_inform_hero_photo
   examples : |
@@ -52,6 +69,14 @@ nlu:
     - Me envia uma fota dela
     - Quero uma foto dele
     - Quero uma foto dela
+    - Me manda uma foto do [hulk]{"entity":"hero_name","value":"hulk"}
+    - Quero uma foto do [hulk]{"entity":"hero_name","value":"hulk"}
+    - Me manda uma foto do [spider-man]{"entity":"hero_name","value":"spider-man"}
+    - Quero uma foto do [spider-man]{"entity":"hero_name","value":"spider-man"}
+    - Me manda uma foto do [iron man]{"entity":"hero_name","value":"iron man"}
+    - Quero uma foto do [iron man]{"entity":"hero_name","value":"iron man"}
+    - Me manda uma foto do [captain america]{"entity":"hero_name","value":"captain america"}
+    - Quero uma foto do [captain america]{"entity":"hero_name","value":"captain america"}
 
 - intent: intent_inform_hero_comics_quantity
   examples : |
@@ -61,3 +86,55 @@ nlu:
     - Ela está presente em quantos quadrinhos
     - Quantidade de quadrinhos do heroi
     - Quantidade de quadrinhos da heroina
+    - Quantos quadrinhos o [hulk]{"entity":"hero_name","value":"hulk"} participou
+    - Quantos quadrinhos o [hulk]{"entity":"hero_name","value":"hulk"} aparece
+    - Quantos quadrinhos o [spider-man]{"entity":"hero_name","value":"spider-man"} participou
+    - Quantos quadrinhos o [spider-man]{"entity":"hero_name","value":"spider-man"} aparece
+    - Quantos quadrinhos o [iron man]{"entity":"hero_name","value":"iron man"} participou
+    - Quantos quadrinhos o [iron man]{"entity":"hero_name","value":"iron man"} aparece
+    - Quantos quadrinhos o [captain america]{"entity":"hero_name","value":"captain america"} participou
+    - Quantos quadrinhos o [captain america]{"entity":"hero_name","value":"captain america"} aparece
+
+################################################## COMICS ##################################################
+
+- intent: intent_about_comics
+  examples : |
+    - Quero conhecer quadrinhos
+    - Sobre quadrinhos
+    - Quero conhecer os quadrinhos da marvel
+    - Quero conhecer os comics
+    - Sobre comics
+    - Comics da marvel
+    - As hqs da marvel
+    - Conhecer hqs
+
+- intent: intent_comic_name
+  examples: |
+    - [Avengers]{"entity":"comic_name","value":"Avengers"}
+    - quero conhecer o quadrinho [Avengers]{"entity":"comic_name","value":"Avengers"}
+    - voce conhece o quadrinho [Avengers]{"entity":"comic_name","value":"Avengers"}
+    - voce conhece a hq [Avengers]{"entity":"comic_name","value":"Avengers"}
+
+- intent: intent_comic_date
+  examples: |
+    - Quando foi lançado
+    - Qual a data de lançamento
+    - Quando foi lançado o quadrinho [Avengers]{"entity":"comic_name","value":"Avengers"}
+    - [Avengers]{"entity":"comic_name","value":"Avengers"} foi lançado quando
+    - Qual a data de lançamento de [Avengers]{"entity":"comic_name","value":"Avengers"}
+
+- intent: intent_comic_creators
+  examples: |
+    - Quem escreveu o quadrinho
+    - Qual foi o escritor do quadrinho
+    - Qual foram os escritores do quadrinho
+    - Quem criou o quadrinho
+    - Que escritou criou o quadrinho
+    - Quem escreveu a hq
+    - Qual foi o escritor da hq
+    - Qual foram os escritores da hq
+    - Quem criou a hq
+    - Que escritou criou a hq
+    - Quem escreveu [Avengers]{"entity":"comic_name","value":"Avengers"}
+    - [Avengers]{"entity":"comic_name","value":"Avengers"} foi escrito por quem
+    - Quais são os criadores de [Avengers]{"entity":"comic_name","value":"Avengers"}

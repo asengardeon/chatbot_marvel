@@ -1,13 +1,20 @@
 version: "2.0"
 
 intents:
+  # GREET
   - intent_greet
   - intent_goodbye
+  # HERO
   - intent_about_heros
   - intent_hero_name
   - intent_inform_hero_description
   - intent_inform_hero_photo
   - intent_inform_hero_comics_quantity
+  # COMICS
+  - intent_about_comics
+  - intent_comic_name
+  - intent_comic_date
+  - intent_comic_creators
 
 responses:
   utter_greet:
@@ -24,10 +31,32 @@ Qual é sua pergunta?"
   utter_ask_hero_options:
   - text : "Certo, o que você quer saber sobre {hero_name}? História? Foto? Quantidade de quadrinhos que ele aparece?"
 
+  utter_ask_comic_name:
+  - text : "Qual quadrinho você quer conhecer mais?"
+
+  utter_ask_comic_options:
+  - text : "Certo, o que você quer saber sobre {comic_name}? Data de lançamento? Criadores? Herois? Preço? Foto?"
+
+  utter_ask_creator_name:
+  - text : "Qual criador você quer conhecer mais?"
+
+  utter_ask_creator_options:
+    - text: "Certo, o que você quer saber sobre {creator_name}? Quais quadrinhos ele escreveu? Foto?"
+
 actions:
+  # HERO
   - action_hero_description
   - action_hero_photo
   - action_hero_comics_quantity
+  # COMICS
+  - action_comic_date
+  - action_comic_creators
+  - action_comic_heros
+  - action_comic_prices
+  - action_comic_photo
+  # CREATORES
+  - action_creator_comics
+  - action_creator_photo
 
 entities:
   - hero_name
