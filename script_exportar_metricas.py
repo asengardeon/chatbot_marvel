@@ -2,6 +2,7 @@
 
 try:
     from pymongo import MongoClient
+    import csv
     import json
     import pika
 except:
@@ -17,7 +18,7 @@ mongo_args = '?authSource=admin&ssl=false'
 mongo_db_name = 'rasa'
 mongo_collection = 'conversations'
 mongo_query = {'events.event': 'user'}
-mongo_project = {"_id" : 1, "events.event" : 1, "events.text" : 1}
+mongo_project = {"events.text" : 1}
 
 
 def executar():
@@ -31,11 +32,17 @@ def executar():
 
     conversations = target_collection.find(mongo_query, mongo_project)
 
-    for i, item in enumerate(conversations):
-        print(item)
-        print()
-
     mongo_client.close()
+
+    metricas = open("metricas.csv", "w")
+
+    writer = csv.writer(metricas)
+
+    for i, conversation in enumerate(conversations):
+        for key, value in conversation.items():
+            writer.writerow([key, value])
+
+    metricas.close()
 
 
 if __name__ == "__main__":
