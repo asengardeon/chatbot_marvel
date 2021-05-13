@@ -4,6 +4,7 @@ intents:
   # GREET
   - intent_greet
   - intent_goodbye
+  - intent_service_vote
   # HERO
   - intent_about_heros
   - intent_hero_name
@@ -15,15 +16,22 @@ intents:
   - intent_comic_name
   - intent_comic_date
   - intent_comic_creators
+  - intent_comic_prices
+  - intent_comic_photo
+  - intent_comic_heros
+  # CREATORS
+  - intent_about_creators
+  - intent_creator_name
+  - intent_creator_comics
+  - intent_creator_photo
 
 responses:
   utter_greet:
   - text: "Olá, bem-vindo ao canal de ajuda da Marvel. Meu nome é Bot Lee, serei seu super assistente virtual.
-Posso lhe ajudar em diversos assuntos sobre a Marvel Comics, como herois, criadores e quadrinhos.
-Qual é sua pergunta?"
+Você quer saber mais sobre herois, criadores ou quadrinhos?"
 
   utter_goodbye:
-  - text: "Até a próxima"
+  - text: "Certo, tudo bem amigo! Mas antes de sair, você pode avaliar meu atendimento? De 1 (ruim) até 5(excelente)?"
 
   utter_ask_hero_name:
   - text : "Qual heroi/heroina você quer conhecer mais?"
@@ -57,11 +65,14 @@ actions:
   # CREATORES
   - action_creator_comics
   - action_creator_photo
+  # VOTING
+  - action_save_vote
 
 entities:
   - hero_name
   - comic_name
   - creator_name
+  - vote
 
 slots:
   hero_name:
@@ -69,6 +80,8 @@ slots:
   comic_name:
     type: text
   creator_name:
+    type: text
+  vote:
     type: text
 
 session_config:

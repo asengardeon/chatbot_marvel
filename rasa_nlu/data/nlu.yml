@@ -17,6 +17,19 @@ nlu:
     - Até logo
     - Sair
 
+- intent: intent_service_vote
+  examples : |
+    - Meu voto é [1]{"entity":"vote","value":"1"}
+    - [1]{"entity":"vote","value":"1"}
+    - Meu voto é [2]{"entity":"vote","value":"2"}
+    - [2]{"entity":"vote","value":"2"}
+    - Meu voto é [3]{"entity":"vote","value":"3"}
+    - [3]{"entity":"vote","value":"3"}
+    - Meu voto é [4]{"entity":"vote","value":"4"}
+    - [4]{"entity":"vote","value":"4"}
+    - Meu voto é [5]{"entity":"vote","value":"5"}
+    - [5]{"entity":"vote","value":"5"}
+
 ################################################## HERO ##################################################
 
 - intent: intent_about_heros
@@ -138,3 +151,71 @@ nlu:
     - Quem escreveu [Avengers]{"entity":"comic_name","value":"Avengers"}
     - [Avengers]{"entity":"comic_name","value":"Avengers"} foi escrito por quem
     - Quais são os criadores de [Avengers]{"entity":"comic_name","value":"Avengers"}
+
+- intent: intent_comic_prices
+  examples : |
+    - Qual o preço do quadrinho
+    - Qual o valor do quadrinho
+    - Quanto custa o quadrinho
+    - Qual o preço do [Avengers]{"entity":"comic_name","value":"Avengers"}
+    - Qual o valor do [Avengers]{"entity":"comic_name","value":"Avengers"}
+    - Quanto custa o [Avengers]{"entity":"comic_name","value":"Avengers"}
+
+- intent: intent_comic_photo
+  examples : |
+    - Queria uma foto do quadrinho
+    - Me envia uma foto do hq
+    - Me manda uma foto do comic
+    - Me manda uma foto do [Avengers]{"entity":"comic_name","value":"Avengers"}
+    - Me envia uma foto do [Avengers]{"entity":"comic_name","value":"Avengers"}
+    - Queria uma foto do [Avengers]{"entity":"comic_name","value":"Avengers"}
+
+- intent: intent_comic_heros
+  examples : |
+    - Quais herois aparecem no quadrinho
+    - Quantos herois aparecem no quadrinho
+    - Quais personagens aparecem no quadrinho
+    - Quais herois aparecem no comic
+    - Quantos herois aparecem no comic
+    - Quais personagens aparecem no comic
+
+  ################################################## CREATORS ##################################################
+
+- intent: intent_about_creators
+  examples: |
+    - Queria conhecer os criadores
+    - Queria conhecer os escritores
+    - Você conhece os criadores
+    - Você conhece quem escreveu
+
+- intent: intent_creator_name
+  examples : |
+    - [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
+    - Você conhece o [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
+    - Queria conhecer o [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
+    - Queria saber mais sobre o [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
+    - [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
+    - Você conhece o [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
+    - Queria conhecer o [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
+    - Queria saber mais sobre o [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
+
+- intent: intent_creator_comics
+  examples: |
+    - Quais quadrinhos ele fez
+    - Quantos quadrinhos ele fez
+    - Quais quadrinhos o [Stan Lee]{"entity":"comic_name","value":"Stan Lee"} fez
+    - Quantos quadrinhos o [Stan Lee]{"entity":"comic_name","value":"Stan Lee"} fez
+    - Quais quadrinhos o [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"} fez
+    - Quantos quadrinhos o [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"} fez
+
+- intent: intent_creator_photo
+  examples : |
+    - Me envia uma foto do criador
+    - Manda uma foto dele do escritor
+    - Queria uma foto do criador
+    - Me manda uma foto do [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
+    - Quero uma foto do [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
+    - Me envia uma foto do [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
+    - Me manda uma foto do [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
+    - Quero uma foto do [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
+    - Me envia uma foto do [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}

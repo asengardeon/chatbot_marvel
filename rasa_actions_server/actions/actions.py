@@ -118,7 +118,10 @@ class ActionCharactersOfComic(Action):
 
         found, result = marvel_request.characters_of_comic(comic_name)
 
-        dispatcher.utter_message(text=result)
+        if found:
+            dispatcher.utter_message(text=f"Os herois que aparecem no {comic_name} foram: {result}")
+        else:
+            dispatcher.utter_message(text=f"Infelizmente não sei quais são os herois que aparecem no {comic_name}")
         return []
 
 
@@ -134,7 +137,10 @@ class ActionComicPrices(Action):
 
         found, result = marvel_request.prices_of_comic(comic_name)
 
-        dispatcher.utter_message(text=result)
+        if found:
+            dispatcher.utter_message(text=f"O preço do quadrinho {comic_name} é {result}")
+        else:
+            dispatcher.utter_message(text=f"Não sei o preço do quadrinho {comic_name}")
         return []
 
 
@@ -150,9 +156,10 @@ class ActionComicPhoto(Action):
 
         found, result = marvel_request.comic_photo(comic_name)
         if found:
+            dispatcher.utter_message(text=f"Toma uma foto bonitona do(a) {comic_name}")
             dispatcher.utter_message(image=result)
         else:
-            dispatcher.utter_message(text=result)
+            dispatcher.utter_message(text=f"Infelizmente não tenho foto do(a) {comic_name}")
         return []
 
 
@@ -164,10 +171,14 @@ class ActionComicsOfCreator(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        first_name = tracker.get_slot('first_name')
-        last_name = tracker.get_slot('last_name')
+        creator_name = tracker.get_slot('creator_name')
+        first_name, last_name = creator_name.split(" ")
         found, result = marvel_request.comics_of_creator(first_name, last_name)
-        dispatcher.utter_message(text=result)
+
+        if found:
+            dispatcher.utter_message(text=f"Os quadrinhos escritos pelo {creator_name} são {result}")
+        else:
+            dispatcher.utter_message(text=f"Infelizmente não tenho os quadrinhos escritos pelo {creator_name}")
         return []
 
 
@@ -179,10 +190,26 @@ class ActionCreatorFoto(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # TODO
-        first_name = tracker.get_slot('first_name')
-        last_name = tracker.get_slot('last_name')
-        found, result = marvel_request.qtd_comics_of_creator(first_name, last_name)
-        dispatcher.utter_message(text=result)
+        creator_name = tracker.get_slot('creator_name')
+        first_name, last_name = creator_name.split(" ")
+        found, result = marvel_request.creator_photo(first_name, last_name)
+
+        if found:
+            dispatcher.utter_message(text=f"Toma uma foto bonitona do(a) {creator_name}")
+            dispatcher.utter_message(image=result)
+        else:
+            dispatcher.utter_message(text=f"Infelizmente não tenho foto do(a) {creator_name}")
         return []
 
+class ActionSaveVote(Action):
+
+    def name(self) -> Text:
+        return "action_save_vote"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        vote = tracker.get_slot('vote')
+
+        dispatcher.utter_message(text=f"Obrigado por votar, seu voto computado foi {vote}")
+        return []

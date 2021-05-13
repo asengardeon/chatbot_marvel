@@ -120,11 +120,12 @@ def comics_of_creator(first_name, last_name):
     return found, result
 
 
-def qtd_comics_of_creator(first_name, last_name):
+def creator_photo(first_name, last_name):
     found = False
     result = f"Criador {ITEM_NOT_FOUND}"
     creators = m.creators.all(firstName=first_name, lastName=last_name)
     if len(creators['data']['results']) > 0:
-        result = creators['data']['results'][0]['comics']['available']
+        resource = creators['data']['results'][0]['thumbnail']
+        result = f"{resource['path']}/portrait_incredible.{resource['extension']}"
         found = True
-    return found, str(result)
+    return found, result
