@@ -18,6 +18,7 @@ COPY actions /app/actions
 
 # Install modules from setup.py
 COPY setup.py /app
+RUN pip install --upgrade pip
 RUN pip install . --no-cache-dir
 
 # Download spacy language data

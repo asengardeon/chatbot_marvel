@@ -7,7 +7,7 @@ stories:
 - story: checkpoint_greet
   steps:
     - intent: intent_greet
-    - action: utter_greet
+    - action: action_greet
     - checkpoint: checkpoint_greet
 
 - story: story_service_vote
@@ -42,6 +42,7 @@ stories:
     - checkpoint: hero_name_informed
     - intent: intent_inform_hero_description
     - action: action_hero_description
+    - action: utter_ask_more_hero_options
 
 #- story: story_hero_description_2 # Descrição do personagem 2
 #  steps:
@@ -56,6 +57,7 @@ stories:
     - checkpoint: hero_name_informed
     - intent: intent_inform_hero_photo
     - action: action_hero_photo
+    - action: utter_ask_more_hero_options
 
 #- story: story_hero_photo_2 # Foto do personagem 2
 #  steps:
@@ -70,6 +72,7 @@ stories:
     - checkpoint: hero_name_informed
     - intent: intent_inform_hero_comics_quantity
     - action: action_hero_comics_quantity
+    - action: utter_ask_more_hero_options
 
 #- story: story_hero_comics_quantity_2 # Quantidade de quadrinhos do personagem 2
 #  steps:
@@ -106,6 +109,7 @@ stories:
     - checkpoint: comic_name_informed
     - intent: intent_comic_date
     - action: action_comic_date
+    - action: utter_ask_more_comic_options
 
 #- story: story_comic_release_date_2 # Data de lançamento do quadrinho 2
 #  steps:
@@ -120,6 +124,7 @@ stories:
     - checkpoint: comic_name_informed
     - intent: intent_comic_creators
     - action: action_comic_creators
+    - action: utter_ask_more_comic_options
 
 #- story: story_comic_creators_2 # Criadores do quadrinho 2
 #  steps:
@@ -134,6 +139,7 @@ stories:
     - checkpoint: comic_name_informed
     - intent: intent_comic_prices
     - action: action_comic_prices
+    - action: utter_ask_more_comic_options
 
 #- story: story_comic_prices_2 # Preços do quadrinho 2
 #  steps:
@@ -148,6 +154,7 @@ stories:
     - checkpoint: comic_name_informed
     - intent: intent_comic_photo
     - action: action_comic_photo
+    - action: utter_ask_more_comic_options
 
 #- story: story_comic_photo_2 # Foto do quadrinho 2
 #  steps:
@@ -162,6 +169,7 @@ stories:
     - checkpoint: comic_name_informed
     - intent: intent_comic_heros
     - action: action_comic_heros
+    - action: utter_ask_more_comic_options
 
 #- story: story_comic_heros_2 # Herois do quadrinho 2
 #  steps:

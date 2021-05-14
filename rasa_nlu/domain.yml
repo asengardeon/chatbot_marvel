@@ -64,11 +64,35 @@ Você quer conhecer?"
       - title : "Quantidade de quadrinhos que ele participou"
         payload : "quantidade quadrinhos que ele participou"
 
+  utter_ask_more_hero_options:
+  - text : "Algo mais sobre {hero_name}?"
+    buttons:
+      - title : "Uma história"
+        payload : "historia do heroi"
+      - title : "Uma foto"
+        payload : "foto do heroi"
+      - title : "Quantidade de quadrinhos que ele participou"
+        payload : "quantidade quadrinhos que ele participou"
+
   utter_ask_comic_name:
   - text : "Qual quadrinho você quer conhecer mais?"
 
   utter_ask_comic_options:
   - text : "Certo, o que você quer saber sobre {comic_name}? Data de lançamento? Criadores? Herois? Preço? Foto?"
+    buttons:
+      - title: "Data de lançamento"
+        payload: "data lançamento"
+      - title: "Criadores do quadrinho"
+        payload: "criadores do quadrinho"
+      - title: "Herois no quadrinho"
+        payload: "herois que aparecem no quadrinho"
+      - title: "Preço"
+        payload: "preço do quadrinho"
+      - title: "Foto"
+        payload: "foto do quadrinho"
+
+  utter_ask_more_comic_options:
+  - text : "Algo mais sobre {comic_name}?"
     buttons:
       - title: "Data de lançamento"
         payload: "data lançamento"
@@ -88,6 +112,7 @@ Você quer conhecer?"
     - text: "Certo, o que você quer saber sobre {creator_name}? Quais quadrinhos ele escreveu? Foto?"
 
 actions:
+  - action_greet
   # HERO
   - action_hero_description
   - action_hero_photo
