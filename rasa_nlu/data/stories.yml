@@ -173,50 +173,50 @@ stories:
 
 ################################################## CREATORS ##################################################
 
-- story: checkpoint_creator_name_1 # Checkpoint nome do criador
-  steps:
-    - checkpoint: checkpoint_greet
-    - intent: intent_about_creators
-    - action: utter_ask_creator_name
-    - intent: intent_creator_name
-      entities:
-          - creator_name: "Jack Kirby"
-    - action: utter_ask_creator_options
-    - checkpoint: creator_name_informed
-
-#- story: checkpoint_creator_name_2 # Checkpoint nome do criador 2
+#- story: checkpoint_creator_name_1 # Checkpoint nome do criador
 #  steps:
 #    - checkpoint: checkpoint_greet
+#    - intent: intent_about_creators
+#    - action: utter_ask_creator_name
 #    - intent: intent_creator_name
 #      entities:
-#        - creator_name: "Jack Kirby"
+#          - creator_name: "Jack Kirby"
 #    - action: utter_ask_creator_options
 #    - checkpoint: creator_name_informed
-
-- story: story_creator_comics # Quadrinhos do criador
-  steps:
-    - checkpoint: creator_name_informed
-    - intent: intent_creator_comics
-    - action: action_creator_comics
-
-#- story: story_creator_comics_2 # Quadrinhos do criador 2
+#
+##- story: checkpoint_creator_name_2 # Checkpoint nome do criador 2
+##  steps:
+##    - checkpoint: checkpoint_greet
+##    - intent: intent_creator_name
+##      entities:
+##        - creator_name: "Jack Kirby"
+##    - action: utter_ask_creator_options
+##    - checkpoint: creator_name_informed
+#
+#- story: story_creator_comics # Quadrinhos do criador
 #  steps:
-#    - checkpoint: checkpoint_greet
+#    - checkpoint: creator_name_informed
 #    - intent: intent_creator_comics
-#    - slot_was_set:
-#        - creator_name: "Jack Kirby"
 #    - action: action_creator_comics
-
-- story: story_creator_photo # Foto do criador
-  steps:
-    - checkpoint: creator_name_informed
-    - intent: intent_creator_photo
-    - action: action_creator_photo
-
-#- story: story_creator_photo_2 # Foto do criador 2
+#
+##- story: story_creator_comics_2 # Quadrinhos do criador 2
+##  steps:
+##    - checkpoint: checkpoint_greet
+##    - intent: intent_creator_comics
+##    - slot_was_set:
+##        - creator_name: "Jack Kirby"
+##    - action: action_creator_comics
+#
+#- story: story_creator_photo # Foto do criador
 #  steps:
-#    - checkpoint: checkpoint_greet
+#    - checkpoint: creator_name_informed
 #    - intent: intent_creator_photo
-#    - slot_was_set:
-#        - creator_name: "Jack Kirby"
 #    - action: action_creator_photo
+#
+##- story: story_creator_photo_2 # Foto do criador 2
+##  steps:
+##    - checkpoint: checkpoint_greet
+##    - intent: intent_creator_photo
+##    - slot_was_set:
+##        - creator_name: "Jack Kirby"
+##    - action: action_creator_photo

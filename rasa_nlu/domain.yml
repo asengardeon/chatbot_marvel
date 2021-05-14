@@ -20,10 +20,10 @@ intents:
   - intent_comic_photo
   - intent_comic_heros
   # CREATORS
-  - intent_about_creators
-  - intent_creator_name
-  - intent_creator_comics
-  - intent_creator_photo
+  #- intent_about_creators
+  #- intent_creator_name
+  #- intent_creator_comics
+  #- intent_creator_photo
 
 responses:
   utter_greet:
@@ -34,11 +34,22 @@ Você quer conhecer?"
         payload : "herois"
       - title : "Quadrinhos"
         payload : "quadrinhos"
-      - title : "Criadores"
-        payload : "criadores"
+#      - title : "Criadores"
+#        payload : "criadores"
 
   utter_goodbye:
-  - text: "Certo, tudo bem amigo! Mas antes de sair, você pode avaliar meu atendimento? De 1 (ruim) até 5(excelente)?"
+  - text: "Certo, tudo bem amigo! Mas antes de sair, você pode avaliar meu atendimento?"
+    buttons:
+      - title : "5-Excelente"
+        payload : "5-Excelente"
+      - title: "4-Bom"
+        payload: "4-Bom"
+      - title: "3-Regular"
+        payload: "4-Regular"
+      - title: "2-Ruim"
+        payload: "2-Ruim"
+      - title: "1-Pessimo"
+        payload: "1-Pessimo"
 
   utter_ask_hero_name:
   - text : "Qual heroi/heroina você quer conhecer mais?"
@@ -58,6 +69,17 @@ Você quer conhecer?"
 
   utter_ask_comic_options:
   - text : "Certo, o que você quer saber sobre {comic_name}? Data de lançamento? Criadores? Herois? Preço? Foto?"
+    buttons:
+      - title: "Data de lançamento"
+        payload: "data lançamento"
+      - title: "Criadores do quadrinho"
+        payload: "criadores do quadrinho"
+      - title: "Herois no quadrinho"
+        payload: "herois que aparecem no quadrinho"
+      - title: "Preço"
+        payload: "preço do quadrinho"
+      - title: "Foto"
+        payload: "foto do quadrinho"
 
   utter_ask_creator_name:
   - text : "Qual criador você quer conhecer mais?"

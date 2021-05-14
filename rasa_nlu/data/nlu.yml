@@ -19,16 +19,11 @@ nlu:
 
 - intent: intent_service_vote
   examples : |
-    - Meu voto é [1]{"entity":"vote","value":"1"}
-    - [1]{"entity":"vote","value":"1"}
-    - Meu voto é [2]{"entity":"vote","value":"2"}
-    - [2]{"entity":"vote","value":"2"}
-    - Meu voto é [3]{"entity":"vote","value":"3"}
-    - [3]{"entity":"vote","value":"3"}
-    - Meu voto é [4]{"entity":"vote","value":"4"}
-    - [4]{"entity":"vote","value":"4"}
-    - Meu voto é [5]{"entity":"vote","value":"5"}
-    - [5]{"entity":"vote","value":"5"}
+    - [5-Excelente]{"entity":"vote","value":"5-Excelente"}
+    - [4-Bom]{"entity":"vote","value":"4-Bom"}
+    - [4-Regular]{"entity":"vote","value":"4-Regular"}
+    - [2-Ruim]{"entity":"vote","value":"2-Ruim"}
+    - [1-Pessimo]{"entity":"vote","value":"1-Pessimo"}
 
 ################################################## HERO ##################################################
 
@@ -181,41 +176,41 @@ nlu:
 
   ################################################## CREATORS ##################################################
 
-- intent: intent_about_creators
-  examples: |
-    - Queria conhecer os criadores
-    - Queria conhecer os escritores
-    - Você conhece os criadores
-    - Você conhece quem escreveu
-
-- intent: intent_creator_name
-  examples : |
-    - [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
-    - Você conhece o [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
-    - Queria conhecer o [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
-    - Queria saber mais sobre o [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
-    - [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
-    - Você conhece o [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
-    - Queria conhecer o [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
-    - Queria saber mais sobre o [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
-
-- intent: intent_creator_comics
-  examples: |
-    - Quais quadrinhos ele fez
-    - Quantos quadrinhos ele fez
-#    - Quais quadrinhos o [Stan Lee]{"entity":"comic_name","value":"Stan Lee"} fez
-#    - Quantos quadrinhos o [Stan Lee]{"entity":"comic_name","value":"Stan Lee"} fez
-#    - Quais quadrinhos o [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"} fez
-#    - Quantos quadrinhos o [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"} fez
-
-- intent: intent_creator_photo
-  examples : |
-    - Me envia uma foto do criador
-    - Manda uma foto dele do escritor
-    - Queria uma foto do criador
-#    - Me manda uma foto do [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
-#    - Quero uma foto do [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
-#    - Me envia uma foto do [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
-#    - Me manda uma foto do [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
-#    - Quero uma foto do [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
-#    - Me envia uma foto do [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
+#- intent: intent_about_creators
+#  examples: |
+#    - Queria conhecer os criadores
+#    - Queria conhecer os escritores
+#    - Você conhece os criadores
+#    - Você conhece quem escreveu
+#
+#- intent: intent_creator_name
+#  examples : |
+#    - [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
+#    - Você conhece o [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
+#    - Queria conhecer o [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
+#    - Queria saber mais sobre o [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
+#    - [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
+#    - Você conhece o [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
+#    - Queria conhecer o [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
+#    - Queria saber mais sobre o [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
+#
+#- intent: intent_creator_comics
+#  examples: |
+#    - Quais quadrinhos ele fez
+#    - Quantos quadrinhos ele fez
+##    - Quais quadrinhos o [Stan Lee]{"entity":"comic_name","value":"Stan Lee"} fez
+##    - Quantos quadrinhos o [Stan Lee]{"entity":"comic_name","value":"Stan Lee"} fez
+##    - Quais quadrinhos o [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"} fez
+##    - Quantos quadrinhos o [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"} fez
+#
+#- intent: intent_creator_photo
+#  examples : |
+#    - Me envia uma foto do criador
+#    - Manda uma foto dele do escritor
+#    - Queria uma foto do criador
+##    - Me manda uma foto do [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
+##    - Quero uma foto do [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
+##    - Me envia uma foto do [Stan Lee]{"entity":"comic_name","value":"Stan Lee"}
+##    - Me manda uma foto do [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
+##    - Quero uma foto do [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
+##    - Me envia uma foto do [Jack Kirby]{"entity":"comic_name","value":"Jack Kirby"}
