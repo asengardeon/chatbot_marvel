@@ -14,6 +14,21 @@ from rasa_sdk.executor import CollectingDispatcher
 
 from .marvel_requests import marvel_request
 
+from rasa_sdk.events import AllSlotsReset
+
+class ActionGreet(Action):
+
+     def name(self) -> Text:
+            return "action_greet"
+
+     def run(self, dispatcher: CollectingDispatcher,
+             tracker: Tracker,
+             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+         dispatcher.utter_template("utter_greet", tracker)
+
+         return [AllSlotsReset()]
+
 class ActionHeroDescription(Action):
 
     def name(self) -> Text:
