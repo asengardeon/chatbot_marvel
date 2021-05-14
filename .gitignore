@@ -130,7 +130,3 @@ dmypy.json
 
 # .idea
 .idea/
-
-# Rasa models
-
-rasa_nlu/models/
