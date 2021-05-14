@@ -28,14 +28,14 @@ stories:
     - action: utter_ask_hero_options
     - checkpoint: hero_name_informed
 
-- story: checkpoint_hero_name_2 # Checkpoint nome do personagem 2
-  steps:
-    - checkpoint: checkpoint_greet
-    - intent: intent_hero_name
-      entities:
-        - hero_name: "spider-man"
-    - action: utter_ask_hero_options
-    - checkpoint: hero_name_informed
+#- story: checkpoint_hero_name_2 # Checkpoint nome do personagem 2
+#  steps:
+#    - checkpoint: checkpoint_greet
+#    - intent: intent_hero_name
+#      entities:
+#        - hero_name: "spider-man"
+#    - action: utter_ask_hero_options
+#    - checkpoint: hero_name_informed
 
 - story: story_hero_description # Descrição do personagem
   steps:
@@ -43,13 +43,13 @@ stories:
     - intent: intent_inform_hero_description
     - action: action_hero_description
 
-- story: story_hero_description_2 # Descrição do personagem 2
-  steps:
-    - checkpoint: checkpoint_greet
-    - intent: intent_inform_hero_description
-    - slot_was_set:
-        - hero_name: "spider-man"
-    - action: action_hero_description
+#- story: story_hero_description_2 # Descrição do personagem 2
+#  steps:
+#    - checkpoint: checkpoint_greet
+#    - intent: intent_inform_hero_description
+#    - slot_was_set:
+#        - hero_name: "spider-man"
+#    - action: action_hero_description
 
 - story: story_hero_photo # Foto do personagem
   steps:
@@ -57,13 +57,13 @@ stories:
     - intent: intent_inform_hero_photo
     - action: action_hero_photo
 
-- story: story_hero_photo_2 # Foto do personagem 2
-  steps:
-    - checkpoint: checkpoint_greet
-    - intent: intent_inform_hero_photo
-    - slot_was_set:
-        - hero_name: "spider-man"
-    - action: action_hero_photo
+#- story: story_hero_photo_2 # Foto do personagem 2
+#  steps:
+#    - checkpoint: checkpoint_greet
+#    - intent: intent_inform_hero_photo
+#    - slot_was_set:
+#        - hero_name: "spider-man"
+#    - action: action_hero_photo
 
 - story: story_hero_comics_quantity # Quantidade de quadrinhos do personagem
   steps:
@@ -71,13 +71,13 @@ stories:
     - intent: intent_inform_hero_comics_quantity
     - action: action_hero_comics_quantity
 
-- story: story_hero_comics_quantity_2 # Quantidade de quadrinhos do personagem 2
-  steps:
-    - checkpoint: checkpoint_greet
-    - intent: intent_inform_hero_comics_quantity
-    - slot_was_set:
-        - hero_name: "spider-man"
-    - action: action_hero_comics_quantity
+#- story: story_hero_comics_quantity_2 # Quantidade de quadrinhos do personagem 2
+#  steps:
+#    - checkpoint: checkpoint_greet
+#    - intent: intent_inform_hero_comics_quantity
+#    - slot_was_set:
+#        - hero_name: "spider-man"
+#    - action: action_hero_comics_quantity
 
 ################################################## COMICS ##################################################
 
@@ -92,14 +92,14 @@ stories:
     - action: utter_ask_comic_options
     - checkpoint: comic_name_informed
 
-- story: checkpoint_comic_name_2 # Checkpoint nome do quadrinho 2
-  steps:
-    - checkpoint: checkpoint_greet
-    - intent: intent_comic_name
-      entities:
-        - comic_name: "avengers"
-    - action: utter_ask_comic_options
-    - checkpoint: comic_name_informed
+#- story: checkpoint_comic_name_2 # Checkpoint nome do quadrinho 2
+#  steps:
+#    - checkpoint: checkpoint_greet
+#    - intent: intent_comic_name
+#      entities:
+#        - comic_name: "avengers"
+#    - action: utter_ask_comic_options
+#    - checkpoint: comic_name_informed
 
 - story: story_comic_release_date # Data de lançamento do quadrinho
   steps:
@@ -107,13 +107,13 @@ stories:
     - intent: intent_comic_date
     - action: action_comic_date
 
-- story: story_comic_release_date_2 # Data de lançamento do quadrinho 2
-  steps:
-    - checkpoint: checkpoint_greet
-    - intent: intent_comic_date
-    - slot_was_set:
-        - comic_name: "avengers"
-    - action: action_comic_date
+#- story: story_comic_release_date_2 # Data de lançamento do quadrinho 2
+#  steps:
+#    - checkpoint: checkpoint_greet
+#    - intent: intent_comic_date
+#    - slot_was_set:
+#        - comic_name: "avengers"
+#    - action: action_comic_date
 
 - story: story_comic_creators # Criadores do quadrinho
   steps:
@@ -121,13 +121,13 @@ stories:
     - intent: intent_comic_creators
     - action: action_comic_creators
 
-- story: story_comic_creators_2 # Criadores do quadrinho 2
-  steps:
-    - checkpoint: checkpoint_greet
-    - intent: intent_comic_creators
-    - slot_was_set:
-        - comic_name: "avengers"
-    - action: action_comic_creators
+#- story: story_comic_creators_2 # Criadores do quadrinho 2
+#  steps:
+#    - checkpoint: checkpoint_greet
+#    - intent: intent_comic_creators
+#    - slot_was_set:
+#        - comic_name: "avengers"
+#    - action: action_comic_creators
 
 - story: story_comic_prices # Preços do quadrinho
   steps:
@@ -135,13 +135,13 @@ stories:
     - intent: intent_comic_prices
     - action: action_comic_prices
 
-- story: story_comic_prices_2 # Preços do quadrinho 2
-  steps:
-    - checkpoint: checkpoint_greet
-    - intent: intent_comic_prices
-    - slot_was_set:
-        - comic_name: "avengers"
-    - action: action_comic_prices
+#- story: story_comic_prices_2 # Preços do quadrinho 2
+#  steps:
+#    - checkpoint: checkpoint_greet
+#    - intent: intent_comic_prices
+#    - slot_was_set:
+#        - comic_name: "avengers"
+#    - action: action_comic_prices
 
 - story: story_comic_photo # Foto do quadrinho
   steps:
@@ -149,27 +149,27 @@ stories:
     - intent: intent_comic_photo
     - action: action_comic_photo
 
-- story: story_comic_photo_2 # Foto do quadrinho 2
-  steps:
-    - checkpoint: checkpoint_greet
-    - intent: intent_comic_photo
-    - slot_was_set:
-        - comic_name: "avengers"
-    - action: action_comic_photo
-
-- story: story_comic_heros_2 # Herois do quadrinho 2
-  steps:
-    - checkpoint: checkpoint_greet
-    - intent: intent_comic_heros
-    - slot_was_set:
-        - comic_name: "avengers"
-    - action: action_comic_heros
+#- story: story_comic_photo_2 # Foto do quadrinho 2
+#  steps:
+#    - checkpoint: checkpoint_greet
+#    - intent: intent_comic_photo
+#    - slot_was_set:
+#        - comic_name: "avengers"
+#    - action: action_comic_photo
 
 - story: story_comic_heros # Herois do quadrinho
   steps:
     - checkpoint: comic_name_informed
     - intent: intent_comic_heros
     - action: action_comic_heros
+
+#- story: story_comic_heros_2 # Herois do quadrinho 2
+#  steps:
+#    - checkpoint: checkpoint_greet
+#    - intent: intent_comic_heros
+#    - slot_was_set:
+#        - comic_name: "avengers"
+#    - action: action_comic_heros
 
 ################################################## CREATORS ##################################################
 
@@ -184,14 +184,14 @@ stories:
     - action: utter_ask_creator_options
     - checkpoint: creator_name_informed
 
-- story: checkpoint_creator_name_2 # Checkpoint nome do criador 2
-  steps:
-    - checkpoint: checkpoint_greet
-    - intent: intent_creator_name
-      entities:
-        - creator_name: "Jack Kirby"
-    - action: utter_ask_creator_options
-    - checkpoint: creator_name_informed
+#- story: checkpoint_creator_name_2 # Checkpoint nome do criador 2
+#  steps:
+#    - checkpoint: checkpoint_greet
+#    - intent: intent_creator_name
+#      entities:
+#        - creator_name: "Jack Kirby"
+#    - action: utter_ask_creator_options
+#    - checkpoint: creator_name_informed
 
 - story: story_creator_comics # Quadrinhos do criador
   steps:
@@ -199,13 +199,13 @@ stories:
     - intent: intent_creator_comics
     - action: action_creator_comics
 
-- story: story_creator_comics_2 # Quadrinhos do criador 2
-  steps:
-    - checkpoint: checkpoint_greet
-    - intent: intent_creator_comics
-    - slot_was_set:
-        - creator_name: "Jack Kirby"
-    - action: action_creator_comics
+#- story: story_creator_comics_2 # Quadrinhos do criador 2
+#  steps:
+#    - checkpoint: checkpoint_greet
+#    - intent: intent_creator_comics
+#    - slot_was_set:
+#        - creator_name: "Jack Kirby"
+#    - action: action_creator_comics
 
 - story: story_creator_photo # Foto do criador
   steps:
@@ -213,10 +213,10 @@ stories:
     - intent: intent_creator_photo
     - action: action_creator_photo
 
-- story: story_creator_photo_2 # Foto do criador 2
-  steps:
-    - checkpoint: checkpoint_greet
-    - intent: intent_creator_photo
-    - slot_was_set:
-        - creator_name: "Jack Kirby"
-    - action: action_creator_photo
+#- story: story_creator_photo_2 # Foto do criador 2
+#  steps:
+#    - checkpoint: checkpoint_greet
+#    - intent: intent_creator_photo
+#    - slot_was_set:
+#        - creator_name: "Jack Kirby"
+#    - action: action_creator_photo

@@ -28,7 +28,14 @@ intents:
 responses:
   utter_greet:
   - text: "Olá, bem-vindo ao canal de ajuda da Marvel. Meu nome é Bot Lee, serei seu super assistente virtual.
-Você quer saber mais sobre herois, criadores ou quadrinhos?"
+Você quer conhecer?"
+    buttons:
+      - title : "Herois"
+        payload : "herois"
+      - title : "Quadrinhos"
+        payload : "quadrinhos"
+      - title : "Criadores"
+        payload : "criadores"
 
   utter_goodbye:
   - text: "Certo, tudo bem amigo! Mas antes de sair, você pode avaliar meu atendimento? De 1 (ruim) até 5(excelente)?"
@@ -38,6 +45,13 @@ Você quer saber mais sobre herois, criadores ou quadrinhos?"
 
   utter_ask_hero_options:
   - text : "Certo, o que você quer saber sobre {hero_name}? História? Foto? Quantidade de quadrinhos que ele aparece?"
+    buttons:
+      - title : "Uma história"
+        payload : "historia do heroi"
+      - title : "Uma foto"
+        payload : "foto do heroi"
+      - title : "Quantidade de quadrinhos que ele participou"
+        payload : "quantidade quadrinhos que ele participou"
 
   utter_ask_comic_name:
   - text : "Qual quadrinho você quer conhecer mais?"
