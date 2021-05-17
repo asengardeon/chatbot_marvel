@@ -13,21 +13,29 @@ t = google_translator()
 LIMIT_SEARCH = 100
 
 
+def __translate_to_english__(text):
+  return t.translate(text=text, lang_tgt="en").strip()
+
+
+def __translate_to_portuguese__(text):
+  return t.translate(text=text, lang_tgt="pt").strip()
+
+
 def char_description(char_name: string):
     found = False
     desc = f"Personagem {ITEM_NOT_FOUND}"
-    char = m.characters.all(nameStartsWith=char_name)
+    char = m.characters.all(nameStartsWith=__translate_to_english__(char_name))
     if len(char['data']['results']) > 0:
         c = char['data']['results'][0]['description']
         found = True
-        desc = t.translate(text=c, lang_tgt="pt")
+        desc = __translate_to_portuguese__(c)
     return found, desc
 
 
 def char_photo(char_name: string):
     found = False
     result = f"Personagem {ITEM_NOT_FOUND}"
-    char = m.characters.all(nameStartsWith=char_name)
+    char = m.characters.all(nameStartsWith=__translate_to_english__(char_name))
     if len(char['data']['results']) > 0:
         resource = char['data']['results'][0]['thumbnail']
         result = f"{resource['path']}/portrait_incredible.{resource['extension']}"
@@ -36,14 +44,14 @@ def char_photo(char_name: string):
 
 
 def comics_qtd_for_char(char_name: string):
-    comics = m.comics.all(title=char_name)
+    comics = m.comics.all(title=__translate_to_english__(char_name))
     return str(comics['data']['total'])
 
 
 def date_of_comic(comic: string):
     found = False
     result = f"Quadrinho {ITEM_NOT_FOUND}"
-    comics = m.comics.all(title=comic)
+    comics = m.comics.all(title=__translate_to_english__(comic))
     if len(comics['data']['results']) > 0:
         result = comics['data']['results'][0]['dates']
         found = True
@@ -60,7 +68,7 @@ def date_of_comic(comic: string):
 def creator_of_comic(comic: string):
     found = False
     result = f"Quadrinho {ITEM_NOT_FOUND}"
-    comics = m.comics.all(title=comic)
+    comics = m.comics.all(title=__translate_to_english__(comic))
     if len(comics['data']['results']) > 0:
         creators = comics['data']['results'][0]['creators']['items']
         result = ''
@@ -73,7 +81,7 @@ def creator_of_comic(comic: string):
 def characters_of_comic(comic: string):
     found = False
     result = f"Quadrinho {ITEM_NOT_FOUND}"
-    comics = m.comics.all(title=comic)
+    comics = m.comics.all(title=__translate_to_english__(comic))
     if len(comics['data']['results']) > 0:
         characters = comics['data']['results'][0]['characters']['items']
         result = ''
@@ -86,7 +94,7 @@ def characters_of_comic(comic: string):
 def prices_of_comic(comic: string):
     found = False
     result = f"Quadrinho {ITEM_NOT_FOUND}"
-    comics = m.comics.all(title=comic)
+    comics = m.comics.all(title=__translate_to_english__(comic))
     if len(comics['data']['results']) > 0:
         prices = comics['data']['results'][0]['prices']
         result = ''
@@ -99,7 +107,7 @@ def prices_of_comic(comic: string):
 def comic_photo(comic: string):
     found = False
     result = f"Quadrinho {ITEM_NOT_FOUND}"
-    comics = m.comics.all(title=comic)
+    comics = m.comics.all(title=__translate_to_english__(comic))
     if len(comics['data']['results']) > 0:
         resource = comics['data']['results'][0]['thumbnail']
         result = f"{resource['path']}/portrait_incredible.{resource['extension']}"
