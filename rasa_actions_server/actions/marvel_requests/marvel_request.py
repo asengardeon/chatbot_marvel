@@ -65,7 +65,7 @@ def creator_of_comic(comic: string):
         creators = comics['data']['results'][0]['creators']['items']
         result = ''
         for c in creators:
-            result += c['name'] + ";"
+            result += c['name'] + "\n"
         found = True
     return found, str(result)
 
@@ -78,7 +78,7 @@ def characters_of_comic(comic: string):
         characters = comics['data']['results'][0]['characters']['items']
         result = ''
         for c in characters:
-            result += c['name'] + ";"
+            result += c['name'] + "\n"
         found = True
     return found, str(result)
 
@@ -91,7 +91,7 @@ def prices_of_comic(comic: string):
         prices = comics['data']['results'][0]['prices']
         result = ''
         for c in prices:
-            result += f"{c['price']};"
+            result += f"{c['price']}\n"
         found = True
     return found, result
 
@@ -120,7 +120,7 @@ def comics_of_creator(first_name, last_name):
         actual = 0
         while actual < qtd_max:
             for c in comics:
-                result += f"{c['title']};"
+                result += f"{c['title']}\n"
                 actual = actual + 1
             comic_creator = m.creators.comics(creator_id, offset=LIMIT_SEARCH, limit=LIMIT_SEARCH)
             comics = comic_creator['data']['results']
