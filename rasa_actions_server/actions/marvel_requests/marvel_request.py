@@ -4,6 +4,7 @@ from google_trans_new import google_translator
 from marvel import Marvel
 
 from .config import PUBLIC_KEY, PRIVATE_KEY
+import datetime
 
 ITEM_NOT_FOUND = "não encontrado"
 m = Marvel(PUBLIC_KEY, PRIVATE_KEY)
@@ -44,9 +45,16 @@ def date_of_comic(comic: string):
     result = f"Quadrinho {ITEM_NOT_FOUND}"
     comics = m.comics.all(title=comic)
     if len(comics['data']['results']) > 0:
-        result = str(comics['data']['results'][0]['dates'])
+        result = comics['data']['results'][0]['dates']
         found = True
-    return found, result
+    res = ''
+    for data in result:
+        dat = datetime.datetime.strptime(data['date'], "%Y-%m-%dT%H:%M:%S-%f").strftime('%d/%m/%Y')
+        if data['type'] == 'onsaleDate':
+            res += f"Data de venda: {dat} "
+        if data['type'] == 'focDate':
+            res += f"Data de pré-venda: {dat}"
+    return found, res
 
 
 def creator_of_comic(comic: string):
