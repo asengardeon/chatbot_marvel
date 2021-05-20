@@ -6,3 +6,79 @@ rules:
   steps:
   - intent: intent_goodbye
   - action: utter_goodbye
+
+################################################## HERO ##################################################
+
+- rule: Saber a história de um heroi
+  condition:
+    - slot_was_set:
+        - hero_name : true
+  steps:
+    - intent: intent_inform_hero_description
+    - action: action_hero_description
+    - action: utter_ask_more_hero_options
+
+- rule: Foto de um heroi
+  condition:
+    - slot_was_set:
+        - hero_name : true
+  steps:
+    - intent: intent_inform_hero_photo
+    - action: action_hero_photo
+    - action: utter_ask_more_hero_options
+
+- rule: Quantidade de quadrinhos que o heroi aparece
+  condition:
+    - slot_was_set:
+        - hero_name : true
+  steps:
+    - intent: intent_inform_hero_comics_quantity
+    - action: action_hero_comics_quantity
+    - action: utter_ask_more_hero_options
+
+################################################### COMICS ##################################################
+
+- rule: Data de lançamento do quadrinho
+  condition:
+    - slot_was_set:
+        - comic_name : true
+  steps:
+    - intent: intent_comic_date
+    - action: action_comic_date
+    - action: utter_ask_more_comic_options
+
+- rule: Criadores do quadrinho
+  condition:
+    - slot_was_set:
+        - comic_name : true
+  steps:
+    - intent: intent_comic_creators
+    - action: action_comic_creators
+    - action: utter_ask_more_comic_options
+
+- rule: Preços do quadrinho
+  condition:
+    - slot_was_set:
+        - comic_name : true
+  steps:
+    - intent: intent_comic_prices
+    - action: action_comic_prices
+    - action: utter_ask_more_comic_options
+
+- rule: Foto do quadrinho
+  condition:
+    - slot_was_set:
+        - comic_name : true
+  steps:
+    - intent: intent_comic_photo
+    - action: action_comic_photo
+    - action: utter_ask_more_comic_options
+
+- rule: Herois do quadrinho
+  condition:
+    - slot_was_set:
+        - comic_name : true
+  steps:
+    - intent: intent_comic_heros
+    - action: action_comic_heros
+    - action: utter_ask_more_comic_options

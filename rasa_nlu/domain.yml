@@ -107,10 +107,12 @@ Você quer conhecer?"
 actions:
   - action_greet
   # HERO
+  - action_search_hero
   - action_hero_description
   - action_hero_photo
   - action_hero_comics_quantity
   # COMICS
+  - action_search_comic
   - action_comic_date
   - action_comic_creators
   - action_comic_heros

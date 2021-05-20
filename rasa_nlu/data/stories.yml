@@ -9,7 +9,7 @@ stories:
 
 ################################################## HERO ##################################################
 
-- story: story_hero_description # Descrição do personagem
+- story: story_hero_name # Nome do heroi
   steps:
     - intent: intent_greet
     - action: action_greet
@@ -17,40 +17,12 @@ stories:
     - action: hero_name_form
     - active_loop: hero_name_form
     - active_loop: null
+    - action: action_search_hero
     - action: utter_ask_hero_options
-    - intent: intent_inform_hero_description
-    - action: action_hero_description
-    - action: utter_ask_more_hero_options
-
-- story: story_hero_photo # Foto do personagem
-  steps:
-    - intent: intent_greet
-    - action: action_greet
-    - intent: intent_about_heros
-    - action: hero_name_form
-    - active_loop: hero_name_form
-    - active_loop: null
-    - action: utter_ask_hero_options
-    - intent: intent_inform_hero_photo
-    - action: action_hero_photo
-    - action: utter_ask_more_hero_options
-
-- story: story_hero_photo # Quantidade de quadrinhos do personagem
-  steps:
-    - intent: intent_greet
-    - action: action_greet
-    - intent: intent_about_heros
-    - action: hero_name_form
-    - active_loop: hero_name_form
-    - active_loop: null
-    - action: utter_ask_hero_options
-    - intent: intent_inform_hero_comics_quantity
-    - action: action_hero_comics_quantity
-    - action: utter_ask_more_hero_options
 
 ################################################### COMICS ##################################################
 
-- story: story_comic_release_date # Data de lançamento do quadrinho
+- story: story_comic_name # Nome do quadrinho
   steps:
     - intent: intent_greet
     - action: action_greet
@@ -58,54 +30,5 @@ stories:
     - action: comic_name_form
     - active_loop: comic_name_form
     - active_loop: null
+    - action: action_search_comic
     - action: utter_ask_comic_options
-    - intent: intent_comic_date
-    - action: action_comic_date
-
-- story: story_comic_creators # Criadores do quadrinho
-  steps:
-    - intent: intent_greet
-    - action: action_greet
-    - intent: intent_about_comics
-    - action: comic_name_form
-    - active_loop: comic_name_form
-    - active_loop: null
-    - action: utter_ask_comic_options
-    - intent: intent_comic_creators
-    - action: action_comic_creators
-
-- story: story_comic_prices # Preços do quadrinho
-  steps:
-    - intent: intent_greet
-    - action: action_greet
-    - intent: intent_about_comics
-    - action: comic_name_form
-    - active_loop: comic_name_form
-    - active_loop: null
-    - action: utter_ask_comic_options
-    - intent: intent_comic_prices
-    - action: action_comic_prices
-
-- story: story_comic_photo # Foto do quadrinho
-  steps:
-    - intent: intent_greet
-    - action: action_greet
-    - intent: intent_about_comics
-    - action: comic_name_form
-    - active_loop: comic_name_form
-    - active_loop: null
-    - action: utter_ask_comic_options
-    - intent: intent_comic_photo
-    - action: action_comic_photo
-
-- story: story_comic_heros # Herois do quadrinho
-  steps:
-    - intent: intent_greet
-    - action: action_greet
-    - intent: intent_about_comics
-    - action: comic_name_form
-    - active_loop: comic_name_form
-    - active_loop: null
-    - action: utter_ask_comic_options
-    - intent: intent_comic_heros
-    - action: action_comic_heros

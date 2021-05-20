@@ -20,6 +20,15 @@ def __translate_to_english__(text):
 def __translate_to_portuguese__(text):
   return t.translate(text=text, lang_tgt="pt").strip()
 
+def char_name(char_name: string):
+    found = False
+    name = f"Personagem {ITEM_NOT_FOUND}"
+    char = m.characters.all(nameStartsWith=__translate_to_english__(char_name))
+    if len(char['data']['results']) > 0:
+        n = char['data']['results'][0]['name']
+        found = True
+        name = __translate_to_portuguese__(n)
+    return found, name
 
 def char_description(char_name: string):
     found = False
@@ -47,6 +56,15 @@ def comics_qtd_for_char(char_name: string):
     comics = m.comics.all(title=__translate_to_english__(char_name))
     return str(comics['data']['total'])
 
+def comic_name(comic_name: string):
+    found = False
+    name = f"Quadrinho {ITEM_NOT_FOUND}"
+    comics = m.comics.all(title=__translate_to_english__(comic_name))
+    if len(comics['data']['results']) > 0:
+        n = comics['data']['results'][0]['title']
+        found = True
+        name = __translate_to_portuguese__(n)
+    return found, name
 
 def date_of_comic(comic: string):
     found = False

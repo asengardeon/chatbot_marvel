@@ -30,6 +30,27 @@ class ActionGreet(Action):
 
          return [AllSlotsReset()]
 
+# Hero
+
+class ActionSearchHero(Action):
+
+    def name(self) -> Text:
+        return "action_search_hero"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        char_name = tracker.get_slot('hero_name')
+
+        found, new_char_name = marvel_request.char_name(char_name)
+
+        if found:
+            dispatcher.utter_message(text=f"O heroi mais próximo de {char_name} foi {new_char_name}")
+            char_name = new_char_name
+            return [SlotSet("hero_name", char_name)]
+        else:
+            dispatcher.utter_message(text=f"Não achei nenhum heroi com o nome {char_name}")
+
 class ActionHeroDescription(Action):
 
     def name(self) -> Text:
@@ -82,6 +103,28 @@ class ActionHeroComicsQuantity(Action):
 
         dispatcher.utter_message(text=f"O(a) {char_name} participou de {result} quadrinhos")
         return [SlotSet("hero_name", char_name)]
+
+# Comics
+
+class ActionSearchComic(Action):
+
+    def name(self) -> Text:
+        return "action_search_comic"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        comic_name = tracker.get_slot('comic_name')
+
+        found, new_comic_name = marvel_request.comic_name(comic_name)
+
+        if found:
+            dispatcher.utter_message(text=f"O quadrinho mais próximo de {comic_name} foi {new_comic_name}")
+            comic_name = new_comic_name
+            return [SlotSet("comic_name", comic_name)]
+        else:
+            dispatcher.utter_message(text=f"Não achei nenhum quadrinho com nome {comic_name}")
+            return []
 
 
 class ActionDateOfComic(Action):
