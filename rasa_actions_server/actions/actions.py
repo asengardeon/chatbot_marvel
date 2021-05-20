@@ -15,6 +15,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from .marvel_requests import marvel_request
 
 from rasa_sdk.events import AllSlotsReset
+from rasa_sdk.events import SlotSet
 
 class ActionGreet(Action):
 
@@ -45,7 +46,7 @@ class ActionHeroDescription(Action):
             dispatcher.utter_message(text=desc)
         else:
             dispatcher.utter_message(text=f"Infelizmente não conheço o(a) {char_name} ")
-        return []
+        return [SlotSet("hero_name", char_name)]
 
 
 class ActionHeroPhoto(Action):
@@ -64,7 +65,7 @@ class ActionHeroPhoto(Action):
             dispatcher.utter_message(image=result)
         else:
             dispatcher.utter_message(text=f"Infelizmente não tenho foto do(a) {char_name}")
-        return []
+        return [SlotSet("hero_name", char_name)]
 
 
 class ActionHeroComicsQuantity(Action):
@@ -80,7 +81,7 @@ class ActionHeroComicsQuantity(Action):
         result = marvel_request.comics_qtd_for_char(char_name)
 
         dispatcher.utter_message(text=f"O(a) {char_name} participou de {result} quadrinhos")
-        return []
+        return [SlotSet("hero_name", char_name)]
 
 
 class ActionDateOfComic(Action):
@@ -99,7 +100,7 @@ class ActionDateOfComic(Action):
             dispatcher.utter_message(text=f"{comic_name} foi lançado em {result}")
         else:
             dispatcher.utter_message(text=f"Infelizmente não sei a data de lançamento do quadrinho {comic_name}")
-        return []
+        return [SlotSet("comic_name", comic_name)]
 
 
 class ActionCreatorOfComic(Action):
@@ -118,7 +119,7 @@ class ActionCreatorOfComic(Action):
             dispatcher.utter_message(text=f"Os(as) criadores(as) de {comic_name} foram: {result}")
         else:
             dispatcher.utter_message(text=f"Infelizmente não sei quem escreveu o quadrinho {comic_name}")
-        return []
+        return [SlotSet("comic_name", comic_name)]
 
 
 class ActionCharactersOfComic(Action):
@@ -137,7 +138,7 @@ class ActionCharactersOfComic(Action):
             dispatcher.utter_message(text=f"Os herois que aparecem no {comic_name} foram: {result}")
         else:
             dispatcher.utter_message(text=f"Infelizmente não sei quais são os herois que aparecem no {comic_name}")
-        return []
+        return [SlotSet("comic_name", comic_name)]
 
 
 class ActionComicPrices(Action):
@@ -156,7 +157,7 @@ class ActionComicPrices(Action):
             dispatcher.utter_message(text=f"O preço do quadrinho {comic_name} é {result}")
         else:
             dispatcher.utter_message(text=f"Não sei o preço do quadrinho {comic_name}")
-        return []
+        return [SlotSet("comic_name", comic_name)]
 
 
 class ActionComicPhoto(Action):
@@ -175,46 +176,7 @@ class ActionComicPhoto(Action):
             dispatcher.utter_message(image=result)
         else:
             dispatcher.utter_message(text=f"Infelizmente não tenho foto do(a) {comic_name}")
-        return []
-
-
-class ActionComicsOfCreator(Action):
-
-    def name(self) -> Text:
-        return "action_creator_comics"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        creator_name = tracker.get_slot('creator_name')
-        first_name, last_name = creator_name.split(" ")
-        found, result = marvel_request.comics_of_creator(first_name, last_name)
-
-        if found:
-            dispatcher.utter_message(text=f"Os quadrinhos escritos pelo {creator_name} são {result}")
-        else:
-            dispatcher.utter_message(text=f"Infelizmente não tenho os quadrinhos escritos pelo {creator_name}")
-        return []
-
-
-class ActionCreatorFoto(Action):
-
-    def name(self) -> Text:
-        return "action_creator_photo"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        creator_name = tracker.get_slot('creator_name')
-        first_name, last_name = creator_name.split(" ")
-        found, result = marvel_request.creator_photo(first_name, last_name)
-
-        if found:
-            dispatcher.utter_message(text=f"Toma uma foto bonitona do(a) {creator_name}")
-            dispatcher.utter_message(image=result)
-        else:
-            dispatcher.utter_message(text=f"Infelizmente não tenho foto do(a) {creator_name}")
-        return []
+        return [SlotSet("comic_name", comic_name)]
 
 class ActionSaveVote(Action):
 
