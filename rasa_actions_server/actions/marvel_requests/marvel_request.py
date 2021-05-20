@@ -13,8 +13,14 @@ t = google_translator()
 LIMIT_SEARCH = 100
 
 
+def __fix_char_name(char_name: str):
+  if char_name.upper() == "SPIDER MAN":
+      return "spider-man"
+  return char_name
+
+
 def __translate_to_english__(text):
-  return t.translate(text=text, lang_tgt="en").strip()
+  return __fix_char_name(t.translate(text=text, lang_tgt="en").strip())
 
 
 def __translate_to_portuguese__(text):
