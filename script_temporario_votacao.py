@@ -2,9 +2,6 @@
 
 try:
     from pymongo import MongoClient
-    import csv
-    import json
-    import pika
 except:
     print('Dependencias nao instaladas')
     exit(1)
@@ -27,6 +24,6 @@ def salvar_votacao(id, votacao: int):
 
     target_collection = db[mongo_collection]
 
-    target_collection.update({'_id': id, 'events.event': 1}, {"$set": {"event.votacao": votacao}}
+    target_collection.update({'_id': id}, {"$set": {"events.event.votacao": votacao}}
 
     mongo_client.close()
