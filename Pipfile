@@ -9,6 +9,7 @@ gevent = "*"
 marvel = "*"
 google_trans_new = "*"
 requests = "*"
+rapidfuzz = "*"
 
 [dev-packages]
 

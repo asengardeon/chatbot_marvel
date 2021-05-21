@@ -233,3 +233,4 @@ class ActionSaveVote(Action):
 
         dispatcher.utter_message(text=f"Obrigado por votar, seu voto computado foi {vote}")
         return []
+
