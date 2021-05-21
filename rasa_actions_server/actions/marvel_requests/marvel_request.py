@@ -56,7 +56,7 @@ def __load_all_heroes_names():
                 chars = m.characters.all(offset=actual, limit=LIMIT_SEARCH)
         __save_list_to_file('heroes.names', list)
     list_heroes_names = list
-    print("Concluido carrregamento de herois")
+    print(f"Concluido carrregamento de herois, carregado {len(list)} herois")
 
 
 def __load_from_offset(list, offset=0):
@@ -92,13 +92,17 @@ __load_all_comic_names()   ## abortado, são 48 mil quadrinhos.
 
 
 def __fix_char_name(char_name: str):
-  nome, percentual, id = process.extractOne(char_name, list_heroes_names, scorer=fuzz.WRatio)
-  return nome
+  tuple = process.extractOne(char_name, list_heroes_names, scorer=fuzz.WRatio)
+  if tuple is None:
+      return char_name
+  return tuple[0]
 
 
 def __fix_comic_name(comic_name: str):
-  nome, percentual, id = process.extractOne(comic_name, list_comics_names, scorer=fuzz.WRatio)
-  return nome
+  tuple = process.extractOne(comic_name, list_comics_names, scorer=fuzz.WRatio)
+  if tuple is None:
+      return comic_name
+  return tuple[0]
 
 
 def __translate_char_name_to_english(char_name):
