@@ -20,15 +20,21 @@ LIMIT_SEARCH = 100
 list_heroes_names = []
 list_comics_names = []
 
+only_load_cache = True
+
+def __files_cache_exists(file_name):
+    full_file = f"{os.path.dirname(os.path.abspath(__file__))}{os.path.sep}{file_name}"
+    return os.path.isfile(full_file)
 
 def __save_list_to_file(file_name, list):
-    with open(file_name, 'wb') as fp:
+    full_file = f"{os.path.dirname(os.path.abspath(__file__))}{os.path.sep}{file_name}"
+    with open(full_file, 'wb') as fp:
         pickle.dump(list, fp)
 
 
 def __load_list_from_file(file_name):
-    list = []
-    with open(file_name, 'rb') as fp:
+    full_file = f"{os.path.dirname(os.path.abspath(__file__))}{os.path.sep}{file_name}"
+    with open(full_file, 'rb') as fp:
         list = pickle.load(fp)
     return list
 
@@ -36,7 +42,7 @@ def __load_list_from_file(file_name):
 def __load_all_heroes_names():
     print("Iniciando carrregamento de herois")
     list = []
-    if os.path.isfile('heroes.names'):
+    if only_load_cache or __files_cache_exists('heroes.names'):
         list = __load_list_from_file('heroes.names')
     else:
         chars = m.characters.all(limit=LIMIT_SEARCH)
@@ -53,28 +59,36 @@ def __load_all_heroes_names():
     print("Concluido carrregamento de herois")
 
 
+def __load_from_offset(list, offset=0):
+    list_comics_names = list
+    comics = m.comics.all(offset=offset, limit=LIMIT_SEARCH)
+    if len(comics['data']['results']) > 0:
+        qtd_max = comics['data']['total']
+        actual = offset
+        while actual < qtd_max:
+            for c in comics['data']['results']:
+                list_comics_names.append(c['title'])
+                actual = actual + 1
+            comics = m.comics.all(offset=actual, limit=LIMIT_SEARCH)
+            __save_list_to_file('comics.names', list_comics_names)
+            __save_list_to_file('comic.offset', [qtd_max, actual])
+
+
+
 def __load_all_comic_names():
     print("Iniciando carrregamento de quadrinhos")
-    list = []
-    if os.path.isfile('comics.names'):
-        list = __load_list_from_file('heroes.names')
+    if only_load_cache or (__files_cache_exists('comics.names') and __files_cache_exists('comic.offset')):
+        list = __load_list_from_file('comics.names')
+        offs = __load_list_from_file('comic.offset')
+        if len(list) != offs[0]:
+            __load_from_offset(list, offs[1])
     else:
-        comics = m.comics.all(limit=LIMIT_SEARCH)
-        if len(comics['data']['results']) > 0:
-            qtd_max = comics['data']['total']
-            actual = 0
-            while actual < qtd_max:
-                for c in comics['data']['results']:
-                    list.append(c['title'])
-                    actual = actual + 1
-                comics = m.comics.all(offset=actual, limit=LIMIT_SEARCH)
-        __save_list_to_file('comics.names', list)
-    list_comics_names = list
+       __load_from_offset(list_comics_names)
     print("Concluido carrregamento de quadrinhos")
 
 
 __load_all_heroes_names()
-# __load_all_comic_names()   ## abortado, são 48 mil quadrinhos.
+__load_all_comic_names()   ## abortado, são 48 mil quadrinhos.
 
 
 def __fix_char_name(char_name: str):
