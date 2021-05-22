@@ -21,7 +21,7 @@ t = google_translator()
 LIMIT_SEARCH = 100
 
 
-only_load_cache = False
+only_load_cache = True
 
 def __first_valid_comic_id_from_list(comic_list_tuple, comics_ids):
     for comic in comic_list_tuple:
