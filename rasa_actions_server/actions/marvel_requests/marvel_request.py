@@ -107,7 +107,7 @@ def __fix_comic_name(comic_name: str):
 
 def __translate_char_name_to_english(char_name):
     # return __fix_char_name(__translate_to_english__(char_name))
-    if char_name.upper() == "SPIDER MAN":
+    if char_name.upper() == "HOMEM ARANHA":
         return "spider-man"
     return __translate_to_english__(char_name)
 

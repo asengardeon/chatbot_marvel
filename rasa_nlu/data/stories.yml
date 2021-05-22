@@ -17,7 +17,6 @@ stories:
     - action: hero_name_form
     - active_loop: hero_name_form
     - active_loop: null
-    - action: action_search_hero
     - action: utter_ask_hero_options
 
 ################################################### COMICS ##################################################
@@ -30,5 +29,4 @@ stories:
     - action: comic_name_form
     - active_loop: comic_name_form
     - active_loop: null
-    - action: action_search_comic
     - action: utter_ask_comic_options
