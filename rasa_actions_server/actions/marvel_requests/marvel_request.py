@@ -20,8 +20,6 @@ t = google_translator()
 
 LIMIT_SEARCH = 100
 
-list_heroes_names = []
-list_comics_names = []
 
 only_load_cache = True
 
@@ -44,9 +42,9 @@ def __load_list_from_file(file_name):
 
 def __load_all_heroes_names():
     logging.info("Iniciando carrregamento de herois")
-    list = []
+    list_heroes_names = []
     if only_load_cache or __files_cache_exists('heroes.names'):
-        list = __load_list_from_file('heroes.names')
+        list_heroes_names = __load_list_from_file('heroes.names')
     else:
         chars = m.characters.all(limit=LIMIT_SEARCH)
         if len(chars['data']['results']) > 0:
@@ -54,12 +52,12 @@ def __load_all_heroes_names():
             actual = 0
             while actual < qtd_max:
                 for c in chars['data']['results']:
-                    list.append(c['name'])
+                    list_heroes_names.append(c['name'])
                     actual = actual + 1
                 chars = m.characters.all(offset=actual, limit=LIMIT_SEARCH)
-        __save_list_to_file('heroes.names', list)
-    list_heroes_names = list
-    logging.info("Concluido carrregamento de herois")
+        __save_list_to_file('heroes.names', list_heroes_names)
+    return list_heroes_names
+    logging.info(f"Concluido carrregamento de herois com {len(list_heroes_names)} herois")
 
 
 def __load_from_offset(list, offset=0):
@@ -80,6 +78,7 @@ def __load_from_offset(list, offset=0):
 
 def __load_all_comic_names():
     logging.info("Iniciando carrregamento de quadrinhos")
+    list_comics_names = []
     if only_load_cache or (__files_cache_exists('comics.names') and __files_cache_exists('comic.offset')):
         list = __load_list_from_file('comics.names')
         offs = __load_list_from_file('comic.offset')
@@ -87,7 +86,8 @@ def __load_all_comic_names():
             __load_from_offset(list, offs[1])
     else:
        __load_from_offset(list_comics_names)
-    logging.info("Concluido carrregamento de quadrinhos")
+    return list_comics_names
+    logging.info(f"Concluido carrregamento de quadrinhos, com {len(list_comics_names)} quadrinhos")
 
 
 __load_all_heroes_names()
@@ -95,25 +95,25 @@ __load_all_comic_names()
 
 
 def __fix_char_name(char_name: str):
-
-  nome, percentual, id = process.extractOne(char_name, list_heroes_names, scorer=fuzz.WRatio)
+  hero_names = __load_all_heroes_names()
+  logging.info(process.extractOne(char_name, hero_names, scorer=fuzz.WRatio))
+  nome, percentual, id = process.extractOne(char_name, hero_names, scorer=fuzz.WRatio)
   return nome
 
 
 def __fix_comic_name(comic_name: str):
-  nome, percentual, id = process.extractOne(comic_name, list_comics_names, scorer=fuzz.WRatio)
+  comic_names = __load_all_comic_names()
+  logging.info(process.extractOne(char_name, comic_names, scorer=fuzz.WRatio))
+  nome, percentual, id = process.extractOne(comic_name, comic_names, scorer=fuzz.WRatio)
   return nome
 
 
 def __translate_char_name_to_english(char_name):
-    # return __fix_char_name(__translate_to_english__(char_name))
-    if char_name.upper() == "HOMEM ARANHA":
-        return "spider-man"
-    return __translate_to_english__(char_name)
+    __load_all_heroes_names()
+    return __fix_char_name(__translate_to_english__(char_name))
 
 
 def __translate_comic_name_to_english(comic_name):
-    # return __fix_char_name(__translate_to_english__(char_name))
     return __translate_to_english__(comic_name)
 
 
@@ -123,6 +123,7 @@ def __translate_to_english__(text):
 
 def __translate_to_portuguese__(text):
   return t.translate(text=text, lang_tgt="pt").strip()
+
 
 def char_name(char_name: string):
     found = False
@@ -174,7 +175,7 @@ def comic_name(comic_name: string):
 def date_of_comic(comic: string):
     found = False
     result = f"Quadrinho {ITEM_NOT_FOUND}"
-    comics = m.comics.all(title=__translate_to_english__(comic))
+    comics = m.comics.all(title=__translate_comic_name_to_english(comic))
     if len(comics['data']['results']) > 0:
         result = comics['data']['results'][0]['dates']
         found = True
@@ -191,7 +192,7 @@ def date_of_comic(comic: string):
 def creator_of_comic(comic: string):
     found = False
     result = f"Quadrinho {ITEM_NOT_FOUND}"
-    comics = m.comics.all(title=__translate_to_english__(comic))
+    comics = m.comics.all(title=__translate_comic_name_to_english(comic))
     if len(comics['data']['results']) > 0:
         creators = comics['data']['results'][0]['creators']['items']
         result = ''
@@ -204,7 +205,7 @@ def creator_of_comic(comic: string):
 def characters_of_comic(comic: string):
     found = False
     result = f"Quadrinho {ITEM_NOT_FOUND}"
-    comics = m.comics.all(title=__translate_to_english__(comic))
+    comics = m.comics.all(title=__translate_comic_name_to_english(comic))
     if len(comics['data']['results']) > 0:
         characters = comics['data']['results'][0]['characters']['items']
         result = ''
@@ -220,7 +221,7 @@ if __name__ == 'marvel_request':
 def prices_of_comic(comic: string):
     found = False
     result = f"Quadrinho {ITEM_NOT_FOUND}"
-    comics = m.comics.all(title=__translate_to_english__(comic))
+    comics = m.comics.all(title=__translate_comic_name_to_english(comic))
     if len(comics['data']['results']) > 0:
         prices = comics['data']['results'][0]['prices']
         result = ''
@@ -233,7 +234,7 @@ def prices_of_comic(comic: string):
 def comic_photo(comic: string):
     found = False
     result = f"Quadrinho {ITEM_NOT_FOUND}"
-    comics = m.comics.all(title=__translate_to_english__(comic))
+    comics = m.comics.all(title=__translate_comic_name_to_english(comic))
     if len(comics['data']['results']) > 0:
         resource = comics['data']['results'][0]['thumbnail']
         result = f"{resource['path']}/portrait_incredible.{resource['extension']}"
