@@ -237,25 +237,25 @@ class ActionSaveVote(Action):
         # salvar_votacao(vote)
         return []
 
-def salvar_votacao(votacao: int):
-    mongo_host = '127.0.0.1'
-    mongo_port = '27017'
-    mongo_user = 'rasa'
-    mongo_password = 'rasa'
-    mongo_args = '?authSource=admin&ssl=false'
-    mongo_db_name = 'rasa'
-    mongo_collection = 'conversations'
+# def salvar_votacao(votacao: int):
+#     mongo_host = '127.0.0.1'
+#     mongo_port = '27017'
+#     mongo_user = 'rasa'
+#     mongo_password = 'rasa'
+#     mongo_args = '?authSource=admin&ssl=false'
+#     mongo_db_name = 'rasa'
+#     mongo_collection = 'conversations'
 
-    mongo_connection_string = f'mongodb://{mongo_user}:{mongo_password}@{mongo_host}:{mongo_port}/{mongo_args}'
+#     mongo_connection_string = f'mongodb://{mongo_user}:{mongo_password}@{mongo_host}:{mongo_port}/{mongo_args}'
 
-    mongo_client = MongoClient(mongo_connection_string)
+#     mongo_client = MongoClient(mongo_connection_string)
 
-    db = mongo_client[mongo_db_name]
+#     db = mongo_client[mongo_db_name]
 
-    target_collection = db[mongo_collection]
+#     target_collection = db[mongo_collection]
 
-    id = target_collection.find_one({'projection': {'_id': 1}}).sort({'_id': -1}).limit(1)
+#     id = target_collection.find_one({'projection': {'_id': 1}}).sort({'_id': -1}).limit(1)
 
-    target_collection.update({'_id': id}, {"$set": {'events.event': 'votacao', 'events.votacao': votacao}}
+#     target_collection.update({'_id': id}, {"$set": {'events.event': 'votacao', 'events.votacao': votacao}}
 
-    mongo_client.close()
+#     mongo_client.close()
