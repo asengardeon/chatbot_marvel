@@ -10,6 +10,9 @@ from .config import PUBLIC_KEY, PRIVATE_KEY
 import datetime
 from rapidfuzz import process, fuzz
 
+import logging
+
+
 
 ITEM_NOT_FOUND = "não encontrado"
 m = Marvel(PUBLIC_KEY, PRIVATE_KEY)
@@ -40,7 +43,7 @@ def __load_list_from_file(file_name):
 
 
 def __load_all_heroes_names():
-    print("Iniciando carrregamento de herois")
+    logging.info("Iniciando carrregamento de herois")
     list = []
     if only_load_cache or __files_cache_exists('heroes.names'):
         list = __load_list_from_file('heroes.names')
@@ -56,7 +59,7 @@ def __load_all_heroes_names():
                 chars = m.characters.all(offset=actual, limit=LIMIT_SEARCH)
         __save_list_to_file('heroes.names', list)
     list_heroes_names = list
-    print("Concluido carrregamento de herois")
+    logging.info("Concluido carrregamento de herois")
 
 
 def __load_from_offset(list, offset=0):
@@ -76,7 +79,7 @@ def __load_from_offset(list, offset=0):
 
 
 def __load_all_comic_names():
-    print("Iniciando carrregamento de quadrinhos")
+    logging.info("Iniciando carrregamento de quadrinhos")
     if only_load_cache or (__files_cache_exists('comics.names') and __files_cache_exists('comic.offset')):
         list = __load_list_from_file('comics.names')
         offs = __load_list_from_file('comic.offset')
@@ -84,14 +87,15 @@ def __load_all_comic_names():
             __load_from_offset(list, offs[1])
     else:
        __load_from_offset(list_comics_names)
-    print("Concluido carrregamento de quadrinhos")
+    logging.info("Concluido carrregamento de quadrinhos")
 
 
 __load_all_heroes_names()
-__load_all_comic_names()   ## abortado, são 48 mil quadrinhos.
+__load_all_comic_names()
 
 
 def __fix_char_name(char_name: str):
+
   nome, percentual, id = process.extractOne(char_name, list_heroes_names, scorer=fuzz.WRatio)
   return nome
 
@@ -102,11 +106,15 @@ def __fix_comic_name(comic_name: str):
 
 
 def __translate_char_name_to_english(char_name):
-    return __fix_char_name(__translate_to_english__(char_name))
+    # return __fix_char_name(__translate_to_english__(char_name))
+    if char_name.upper() == "SPIDER MAN":
+        return "spider-man"
+    return __translate_to_english__(char_name)
 
 
-def __translate_comic_name_to_english(char_name):
-    return __fix_char_name(__translate_to_english__(char_name))
+def __translate_comic_name_to_english(comic_name):
+    # return __fix_char_name(__translate_to_english__(char_name))
+    return __translate_to_english__(comic_name)
 
 
 def __translate_to_english__(text):
