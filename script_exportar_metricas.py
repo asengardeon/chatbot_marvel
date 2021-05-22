@@ -34,7 +34,7 @@ def executar():
 
     mongo_client.close()
 
-    csv_columns = ['chat_number', 'total_msg_user_sent', 'texts_sent']
+    csv_columns = ['chat_number', 'text_sent_by_user']
 
     list_dictionaries = []
     for i, conversation in enumerate(conversations):
@@ -42,14 +42,12 @@ def executar():
         for j, item in conversation.items():
             texts_sent = []
             for dictionary in item:
+                isUser = False
                 for key, value in dictionary.items():
                     if value == 'user':
-                        total_messages = total_messages + 1
-                    if key == 'text':
-                        texts_sent.append(value)
-
-            dictionary = { 'chat_number': i + 1, 'total_msg_user_sent': total_messages, 'texts_sent': texts_sent }
-            list_dictionaries.append(dictionary)
+                        isUser = True
+                    if key == 'text' and isUser == True:
+                        list_dictionaries.append({ 'chat_number': i + 1, 'text_sent_by_user': value})
 
     with open("metricas.csv", 'w') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
