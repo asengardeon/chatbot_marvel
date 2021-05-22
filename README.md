@@ -15,7 +15,16 @@ Integrantes:
 
 ## Dependências
 
-- Docker ([clique aqui para instalar](https://www.docker.com/products/docker-desktop)
+- Docker ([clique aqui para instalar](https://www.docker.com/products/docker-desktop))
+- Caso desejar gerar um novo modelo NLU, deve ser instalado o Rasa ([clique aqui para instalar](https://rasa.com/))
+
+## Como é a arquitetura do chatbot?
+
+![alt text](https://github.com/asengardeon/chatbot_marvel/blob/main/arquitetura_chatbot_marvel.png)
+
+## Como é o fluxo do chatbot?
+
+![alt text](https://github.com/asengardeon/chatbot_marvel/blob/main/fluxo_conversa_chatbot_mavel.png)
 
 ## Como executar o chatbot?
 
@@ -23,11 +32,11 @@ Após instalar o Docker e executá-lo, no diretório raiz deste projeto, execute
 
 Para acessar o frontend, [clique aqui](http://localhost:8000).
 
-Par acessar a base de dados, [clique aqui](http://localhost:8081).
+Para acessar a base de dados, [clique aqui](http://localhost:8081).
 
-## Como é o fluxo do chatbot?
+## Como gerar o modelo NLU?
 
-![alt text](https://github.com/asengardeon/chatbot_marvel/blob/main/fluxo_conversa_chatbot_mavel.png)
+Basta acessar o diretório `./rasa_nlu` e executar `rasa train`
 
 ## Como gerar métricas?
 
