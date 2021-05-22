@@ -25,6 +25,10 @@ Para acessar o frontend, [clique aqui](http://localhost:8000).
 
 Par acessar a base de dados, [clique aqui](http://localhost:8081).
 
+## Como é o fluxo do chatbot?
+
+![Image](/fluxo_conversa_chatbot_marvel.png)
+
 ## Como gerar métricas?
 
 Execute no diretório raiz deste projeto `python script_exportar_metricas.py` ou `python3 script_exportar_metricas.py`.
