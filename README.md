@@ -27,7 +27,7 @@ Par acessar a base de dados, [clique aqui](http://localhost:8081).
 
 ## Como é o fluxo do chatbot?
 
-![Image](/fluxo_conversa_chatbot_marvel.png)
+![Image](/https://github.com/asengardeon/chatbot_marvel/blob/main/fluxo_conversa_chatbot_mavel.png)
 
 ## Como gerar métricas?
 
