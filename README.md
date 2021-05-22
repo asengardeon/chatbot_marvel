@@ -24,3 +24,13 @@ Após instalar o Docker e executá-lo, no diretório raiz deste projeto, execute
 Para acessar o frontend, [clique aqui](http://localhost:8000).
 
 Par acessar a base de dados, [clique aqui](http://localhost:8081).
+
+## Como gerar métricas?
+
+Execute no diretório raiz deste projeto `python script_exportar_metricas.py` ou `python3 script_exportar_metricas.py`.
+
+Será salvo o arquivo `metricas.csv` no diretório em questão.
+
+## Como utilizar as métricas para gerar insights?
+
+Com o arquivo gerado, importe-o no notebook do Google Colab [clicando aqui](https://colab.research.google.com/drive/1dHt-hmedM7aH5Em7VCeT6A_JQPxADDZ_?usp=sharing) e execute o notebook inteiro!
