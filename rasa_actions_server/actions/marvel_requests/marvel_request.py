@@ -75,14 +75,13 @@ def __load_from_offset(list, offset=0):
             __save_list_to_file('comic.offset', [qtd_max, actual])
 
 
-
 def __load_all_comic_names():
     logging.info("Iniciando carrregamento de quadrinhos")
     list_comics_names = []
     if only_load_cache or (__files_cache_exists('comics.names') and __files_cache_exists('comic.offset')):
         list = __load_list_from_file('comics.names')
         offs = __load_list_from_file('comic.offset')
-        if len(list) != offs[0]:
+        if len(list) != offs[0] or len(list) == 0:
             __load_from_offset(list, offs[1])
     else:
        __load_from_offset(list_comics_names)
@@ -90,8 +89,9 @@ def __load_all_comic_names():
     logging.info(f"Concluido carrregamento de quadrinhos, com {len(list_comics_names)} quadrinhos")
 
 
-__load_all_heroes_names()
 __load_all_comic_names()
+__load_all_heroes_names()
+
 
 
 def __fix_char_name(char_name: str):
@@ -114,7 +114,7 @@ def __translate_char_name_to_english(char_name):
 
 
 def __translate_comic_name_to_english(comic_name):
-    return __translate_to_english__(comic_name)
+    return __fix_comic_name(__translate_to_english__(comic_name))
 
 
 def __translate_to_english__(text):
