@@ -36,7 +36,7 @@ Par acessar a base de dados, [clique aqui](http://localhost:8081).
 
 ## Como gerar o modelo NLU?
 
-
+Basta acessar o diretório `./rasa_nlu` e executar `rasa train`
 
 ## Como gerar métricas?
 
