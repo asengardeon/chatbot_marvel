@@ -18,7 +18,7 @@ mongo_args = '?authSource=admin&ssl=false'
 mongo_db_name = 'rasa'
 mongo_collection = 'conversations'
 mongo_query = {'events.event': 'user'}
-mongo_project = {'_id': 0, 'events.event': 1}
+mongo_project = {'_id': 0, 'events.event': 1, 'events.text': 1}
 
 
 def executar():
@@ -34,18 +34,21 @@ def executar():
 
     mongo_client.close()
 
-    csv_columns = ['chat_number', 'total_msg_user_sent']
+    csv_columns = ['chat_number', 'total_msg_user_sent', 'texts_sent']
 
     list_dictionaries = []
     for i, conversation in enumerate(conversations):
         total_messages = 0
         for j, item in conversation.items():
+            texts_sent = []
             for dictionary in item:
                 for key, value in dictionary.items():
                     if value == 'user':
                         total_messages = total_messages + 1
+                    if key == 'text':
+                        texts_sent.append(value)
 
-            dictionary = { 'chat_number': i + 1, 'total_msg_user_sent': total_messages }
+            dictionary = { 'chat_number': i + 1, 'total_msg_user_sent': total_messages, 'texts_sent': texts_sent }
             list_dictionaries.append(dictionary)
 
     with open("metricas.csv", 'w') as csvfile:
