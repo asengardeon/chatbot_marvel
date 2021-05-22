@@ -17,7 +17,7 @@ from .marvel_requests import marvel_request
 from rasa_sdk.events import AllSlotsReset
 from rasa_sdk.events import SlotSet
 
-# from pymongo import MongoClient
+from pymongo import MongoClient
 
 class ActionGreet(Action):
 
@@ -234,7 +234,7 @@ class ActionSaveVote(Action):
         vote = tracker.get_slot('vote')
 
         dispatcher.utter_message(text=f"Obrigado por votar, seu voto computado foi {vote}")
-        # salvar_votacao(vote)
+        salvar_votacao(vote)
         return []
 
 def salvar_votacao(votacao: int):
@@ -256,6 +256,5 @@ def salvar_votacao(votacao: int):
 
     id = target_collection.find_one({'projection': {'_id': 1}}).sort({'_id': -1}).limit(1)
 
-    target_collection.update({'_id': id}, {"$set": {'events.event': 'votacao', 'events.votacao': votacao}}
-
+    target_collection.update({'_id': id}, {"$set": {'events.event': 'votacao', 'events.votacao': votacao}})
     mongo_client.close()

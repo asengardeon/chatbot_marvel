@@ -10,6 +10,7 @@ marvel = "*"
 google_trans_new = "*"
 requests = "*"
 rapidfuzz = "*"
+pymongo = "*"
 
 [dev-packages]
 
