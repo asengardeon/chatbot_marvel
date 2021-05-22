@@ -16,7 +16,7 @@ Integrantes:
 ## Dependências
 
 - Docker ([clique aqui para instalar](https://www.docker.com/products/docker-desktop))
-- Caso desejar gerar o modelo NLU, deve ser instalado o Rasa ([clique aqui para instalar](https://rasa.com/))
+- Caso desejar gerar um novo modelo NLU, deve ser instalado o Rasa ([clique aqui para instalar](https://rasa.com/))
 
 ## Como é a arquitetura do chatbot?
 
@@ -32,7 +32,7 @@ Após instalar o Docker e executá-lo, no diretório raiz deste projeto, execute
 
 Para acessar o frontend, [clique aqui](http://localhost:8000).
 
-Par acessar a base de dados, [clique aqui](http://localhost:8081).
+Para acessar a base de dados, [clique aqui](http://localhost:8081).
 
 ## Como gerar o modelo NLU?
 
