@@ -20,11 +20,19 @@ Integrantes:
 
 ## Como é a arquitetura do chatbot?
 
-![alt text](https://github.com/asengardeon/chatbot_marvel/blob/main/arquitetura_chatbot_marvel.png)
+![alt text](./arquitetura_chatbot_marvel.png)
 
 ## Como é o fluxo do chatbot?
 
-![alt text](https://github.com/asengardeon/chatbot_marvel/blob/main/fluxo_conversa_chatbot_mavel.png)
+![alt text](./fluxo_conversa_chatbot_mavel.png)
+
+## Exemplo de fluxo sobre herois
+
+![alt text](./exemplo_fluxo_1.gif)
+
+## Exemplo de fluxo sobre quadrinhos
+
+![alt text](./exemplo_fluxo_2.gif)
 
 ## Como executar o chatbot?
 
