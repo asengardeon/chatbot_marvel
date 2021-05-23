@@ -26,7 +26,7 @@ RUN python -m spacy download en_core_web_md
 RUN python -m spacy link en_core_web_md en
 
 # Don't use root user to run code
-USER 1001
+#USER 1001
 
 # Start the action server
 CMD ["start", "--actions", "actions.actions"]

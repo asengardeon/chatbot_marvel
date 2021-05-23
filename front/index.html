@@ -10,8 +10,17 @@
     </style>
 </head>
 <body>
-<script>!(function () {
-  let e = document.createElement("script"),
+
+<script>
+    (function (){
+        localStorage.clear();
+    })()
+
+</script>
+
+<script>!(function (){
+    let random = Math.random(),
+        e = document.createElement("script"),
     t = document.head || document.getElementsByTagName("head")[0];
   (e.src =
     "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js"),
@@ -21,7 +30,8 @@
       window.WebChat.default(
         {
           customData: { language: "en" },
-          socketUrl: "http://localhost:5005", socketPath: "/socket.io/"
+          socketUrl: "http://localhost:5005", socketPath: "/socket.io/",
+            initPayload: "/get_started{'username'='user_" + random + "', 'password'='pass_" + random + "'}"
         },
         null
       );
