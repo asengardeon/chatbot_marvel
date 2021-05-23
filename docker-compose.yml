@@ -22,6 +22,8 @@ services:
             - 5055:5055
         depends_on:
             - mongo
+        links:
+            - "mongo"
     rasa-nlu-server:
         image: rasa/rasa:2.5.1
         ports:

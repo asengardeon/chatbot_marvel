@@ -238,13 +238,13 @@ class ActionSaveVote(Action):
         return []
 
     def salvar_votacao(self, votacao: int):
-        mongo_host = '127.0.0.1'
+        mongo_host = 'mongo'
         mongo_port = '27017'
         mongo_user = 'rasa'
         mongo_password = 'rasa'
         mongo_args = '?authSource=admin&ssl=false'
         mongo_db_name = 'rasa'
-        mongo_collection = 'conversations'
+        mongo_collection = 'votes'
 
         mongo_connection_string = f'mongodb://{mongo_user}:{mongo_password}@{mongo_host}:{mongo_port}/{mongo_args}'
 
@@ -254,8 +254,8 @@ class ActionSaveVote(Action):
 
         target_collection = db[mongo_collection]
 
-        id = target_collection.find_one({'projection': {'_id': 1}}).sort({'_id': -1}).limit(1)
+        #id = target_collection.find_one({'projection': {'_id': 1}}).sort({'_id': -1}).limit(1)
 
-        target_collection.update({'_id': id}, {"$set": {'events.event': 'votacao', 'events.votacao': votacao}})
+        target_collection.insert({'vote': votacao})
 
         mongo_client.close()
