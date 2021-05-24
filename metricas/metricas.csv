@@ -1,0 +1,285 @@
+chat_number,text_sent_by_user
+1,herois
+1,homem aranha
+1,Quero uma foto dele
+1,tchau
+1,4-Bom
+2,"/get_started{'username'='user_0.2978248547309148', 'password'='pass_0.2978248547309148'}"
+2,olá
+2,quadrinhos
+2,spectacular spider-man
+2,Queria uma foto do quadrinho
+2,Qual a data de lançamento
+2,tchau
+2,3-Regular
+3,"/get_started{'username'='user_0.007458694094101936', 'password'='pass_0.007458694094101936'}"
+3,olá
+3,herois
+3,hulk
+3,Quero conhecer sua história
+3,Quero uma foto dele
+3,tchau
+3,5-Excelente
+4,"/get_started{'username'='user_0.32647957657850823', 'password'='pass_0.32647957657850823'}"
+4,oi
+4,herois
+4,wolverine
+4,Quantos quadrinhos ele participou
+4,Quero uma foto dele
+4,Quero conhecer sua história
+4,tchau
+4,5-Excelente
+5,"/get_started{'username'='user_0.26199712426123867', 'password'='pass_0.26199712426123867'}"
+5,olá
+5,herois
+5,demolidor
+5,Quero uma foto dele
+5,Quero conhecer sua história
+5,tchau
+5,2-Ruim
+6,"/get_started{'username'='user_0.7980274021001481', 'password'='pass_0.7980274021001481'}"
+6,ola
+6,quadrinhos
+6,guerras secretas
+6,Queria uma foto do quadrinho
+6,Qual a data de lançamento
+6,Quem escreveu o quadrinho
+6,tchau
+6,4-Bom
+7,"/get_started{'username'='user_0.9809199556382231', 'password'='pass_0.9809199556382231'}"
+7,oi
+7,quadrinhos
+7,invasão skrull
+7,Queria uma foto do quadrinho
+7,Quais herois aparecem no quadrinho
+7,tchau
+7,4-Bom
+8,"/get_started{'username'='user_0.4536904360941698', 'password'='pass_0.4536904360941698'}"
+8,ola
+8,herois
+8,daredevil
+8,Quero uma foto dele
+8,Quantos quadrinhos ele participou
+8,tchau
+8,4-Bom
+9,"/get_started{'username'='user_0.5242940032959584', 'password'='pass_0.5242940032959584'}"
+9,oi
+9,quadrinhos
+9,era de ultron
+9,Quais herois aparecem no quadrinho
+9,Qual a data de lançamento
+9,Queria uma foto do quadrinho
+9,tchau
+9,3-Regular
+10,"/get_started{'username'='user_0.2775849877424965', 'password'='pass_0.2775849877424965'}"
+10,ola
+10,herois
+10,wanda
+10,Quero uma foto dele
+10,tchau
+10,1-Pessimo
+11,"/get_started{'username'='user_0.9786123651384997', 'password'='pass_0.9786123651384997'}"
+11,oi
+11,herois
+11,batman
+11,Quero uma foto dele
+11,Quero conhecer sua história
+11,tchau
+11,1-Pessimo
+12,"/get_started{'username'='user_0.2812342477706711', 'password'='pass_0.2812342477706711'}"
+12,olar
+12,quadrinhos
+12,vingadores
+12,Qual o preço do quadrinho
+12,Qual a data de lançamento
+12,tchau
+12,3-Regular
+13,"/get_started{'username'='user_0.3966415886873935', 'password'='pass_0.3966415886873935'}"
+13,oi
+13,quadrinhos
+13,guardiões da galaxia
+13,Queria uma foto do quadrinho
+13,Quais herois aparecem no quadrinho
+13,tchau
+13,5-Excelente
+14,"/get_started{'username'='user_0.04319266745685435', 'password'='pass_0.04319266745685435'}"
+14,adam warlock
+14,oi
+14,herois
+14,adam warlock
+14,Quero conhecer sua história
+14,Quero uma foto dele
+14,tchau
+14,3-Regular
+15,"/get_started{'username'='user_0.12106677957490053', 'password'='pass_0.12106677957490053'}"
+15,oi
+15,quadrinhos
+15,quarteto fantastico
+15,Quais herois aparecem no quadrinho
+15,Queria uma foto do quadrinho
+15,tchau
+15,2-Ruim
+16,"/get_started{'username'='user_0.8687416227928078', 'password'='pass_0.8687416227928078'}"
+16,oi
+16,herois
+16,coisa
+16,Quero uma foto dele
+16,tchau
+16,4-Bom
+17,"/get_started{'username'='user_0.1807640644764117', 'password'='pass_0.1807640644764117'}"
+17,oi
+17,herois
+17,thanos
+17,Quero conhecer sua história
+17,tchau
+17,4-Bom
+18,"/get_started{'username'='user_0.4090331112468586', 'password'='pass_0.4090331112468586'}"
+18,oi
+18,quadrinhos
+18,carnificina
+18,Queria uma foto do quadrinho
+18,tchau
+18,1-Pessimo
+19,"/get_started{'username'='user_0.17089541162869915', 'password'='pass_0.17089541162869915'}"
+19,oi
+19,quadrinhos
+19,x men
+19,Queria uma foto do quadrinho
+19,Quem escreveu o quadrinho
+19,tchau
+19,3-Regular
+20,"/get_started{'username'='user_0.7003730937710639', 'password'='pass_0.7003730937710639'}"
+20,oi
+20,herois
+20,visão
+20,Quero uma foto dele
+20,tchau
+20,1-Pessimo
+21,"/get_started{'username'='user_0.3098151684321879', 'password'='pass_0.3098151684321879'}"
+21,oi
+21,quadrinhos
+21,venon
+21,Queria uma foto do quadrinho
+21,Qual a data de lançamento
+21,Qual o preço do quadrinho
+21,tchau
+21,5-Excelente
+22,"/get_started{'username'='user_0.10817590380806785', 'password'='pass_0.10817590380806785'}"
+22,oi
+22,herois
+22,drax
+22,Quero conhecer sua história
+22,Quantos quadrinhos ele participou
+22,Quero uma foto dele
+22,tchau
+22,3-Regular
+23,"/get_started{'username'='user_0.16239501484866503', 'password'='pass_0.16239501484866503'}"
+23,oi
+23,quadrinhos
+23,endgame
+23,Qual a data de lançamento
+23,Queria uma foto do quadrinho
+23,tchau
+23,4-Bom
+24,"/get_started{'username'='user_0.9083902422251751', 'password'='pass_0.9083902422251751'}"
+24,oi
+24,quadrinhos
+24,fenix negra
+24,Queria uma foto do quadrinho
+24,Quais herois aparecem no quadrinho
+24,Qual o preço do quadrinho
+24,tchau
+24,3-Regular
+25,"/get_started{'username'='user_0.48968796127592484', 'password'='pass_0.48968796127592484'}"
+25,oi
+25,quadrinhos
+25,ragnarok
+25,Quais herois aparecem no quadrinho
+25,Queria uma foto do quadrinho
+25,Qual a data de lançamento
+25,Quem escreveu o quadrinho
+25,tchau
+25,4-Bom
+26,"/get_started{'username'='user_0.9945211494133426', 'password'='pass_0.9945211494133426'}"
+26,oi
+26,herois
+26,jessica jones
+26,Quero uma foto dele
+26,Quero conhecer sua história
+26,tchau
+26,2-Ruim
+27,"/get_started{'username'='user_0.4427724321311861', 'password'='pass_0.4427724321311861'}"
+27,oi
+27,herois
+27,punho de ferro
+27,Quero conhecer sua história
+27,Quero uma foto dele
+27,tchau
+27,3-Regular
+28,"/get_started{'username'='user_0.317843525040284', 'password'='pass_0.317843525040284'}"
+28,oi
+28,herois
+28,danny
+28,Quero conhecer sua história
+28,Quero uma foto dele
+28,Quantos quadrinhos ele participou
+28,tchau
+28,3-Regular
+29,"/get_started{'username'='user_0.9250505750098128', 'password'='pass_0.9250505750098128'}"
+29,oi
+29,quadrinhos
+29,multiverso
+29,Qual a data de lançamento
+29,Queria uma foto do quadrinho
+29,tchau
+29,4-Bom
+30,"/get_started{'username'='user_0.7294327614387781', 'password'='pass_0.7294327614387781'}"
+30,oi
+30,herois
+30,questão
+30,Quero uma foto dele
+30,Quero conhecer sua história
+30,tchau
+30,3-Regular
+31,"/get_started{'username'='user_0.4357544905452573', 'password'='pass_0.4357544905452573'}"
+31,oi
+31,quadrinhos
+31,celestial
+31,Queria uma foto do quadrinho
+31,Quais herois aparecem no quadrinho
+31,Qual a data de lançamento
+31,tchau
+31,4-Bom
+32,"/get_started{'username'='user_0.5709622525010181', 'password'='pass_0.5709622525010181'}"
+32,oi
+32,quadrinhos
+32,motoqueiro fantasma
+32,Queria uma foto do quadrinho
+32,Quem escreveu o quadrinho
+32,tchau
+32,2-Ruim
+33,"/get_started{'username'='user_0.9798504939745427', 'password'='pass_0.9798504939745427'}"
+33,oi
+33,quadrinhos
+33,ultimato
+33,Queria uma foto do quadrinho
+33,Qual a data de lançamento
+33,tchau
+33,3-Regular
+34,"/get_started{'username'='user_0.3332083794418699', 'password'='pass_0.3332083794418699'}"
+34,oi
+34,quadrinhos
+34,star
+34,Queria uma foto do quadrinho
+34,Qual o preço do quadrinho
+34,Quais herois aparecem no quadrinho
+34,tchau
+34,3-Regular
+35,"/get_started{'username'='user_0.828737573776821', 'password'='pass_0.828737573776821'}"
+35,oi
+35,herois
+35,homem de ferro
+35,Quero conhecer sua história
+35,Quero uma foto dele
+35,tchau
+35,5-Excelente

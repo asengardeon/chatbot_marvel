@@ -48,10 +48,10 @@ Basta acessar o diretório `./rasa_nlu` e executar `rasa train`
 
 ## Como gerar métricas?
 
-Execute no diretório raiz deste projeto `python script_exportar_metricas.py` ou `python3 script_exportar_metricas.py`.
+Execute no diretório raiz deste projeto `python ./metricas/script_exportar_metricas.py` ou `python3 ./metricas/script_exportar_metricas.py`.
 
-Será salvo o arquivo `metricas.csv` no diretório em questão.
+Serão salvos os arquivos `./metricas/metricas.csv` e `./metricas/votes.csv` no diretório em questão.
 
 ## Como utilizar as métricas para gerar insights?
 
-Com o arquivo gerado, importe-o no notebook do Google Colab [clicando aqui](https://colab.research.google.com/drive/1dHt-hmedM7aH5Em7VCeT6A_JQPxADDZ_?usp=sharing) e execute o notebook inteiro!
+Carregar arquivos `./metricas/chatbot_marvel_metricas.ipynb`, `./metricas/metricas.csv` e `./votes.csv` no Google Colab ou Jupyter e executar `./metricas/chatbot_marvel_metricas.ipynb`

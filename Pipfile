@@ -11,6 +11,7 @@ google_trans_new = "*"
 requests = "*"
 rapidfuzz = "*"
 pymongo = "*"
+pika = "*"
 
 [dev-packages]
 
