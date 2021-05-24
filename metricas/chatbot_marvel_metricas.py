@@ -15,7 +15,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Ler CSV
-metricas = pd.read_csv('metricas.csv', sep = ',', decimal = '.')
+metricas = pd.read_csv('https://raw.githubusercontent.com/asengardeon/chatbot_marvel/main/metricas/metricas.csv', sep = ',', decimal = '.')
 
 # Visualizar os últimos 5 registros para entendimento da estrutura do arquivo
 metricas.tail()
@@ -98,7 +98,10 @@ plt.ylabel('Frequência')
 plt.show()
 
 # Ler CSV com votações
-votes = pd.read_csv('votes.csv', sep = ',', decimal = '.')
+votes = pd.read_csv('https://raw.githubusercontent.com/lucamaral/chatbot_marvel/main/metricas/votes.csv', sep = ',', decimal = '.')
 
 # Votação de satisfação
 votes.value_counts()
+
+plt.pie(votes.value_counts(), labels = votes.vote.unique())
+plt.show()
